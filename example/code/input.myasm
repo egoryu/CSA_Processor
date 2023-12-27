@@ -1,0 +1,15 @@
+section .data
+    buf1: -10
+    buf2: 5
+    kek: buf 20 1
+    name: "Hello"
+section .text
+    ei
+    .kek: mov %rax 1 3; Set eax to 1
+    add %rax %rbx #buf2; Add eax to ebx
+    sub %rax kek[3] ; Subtract ebx from eax
+    .bek: add 2 .kek
+    mov %rax #buf1
+    di
+    jz .bek
+    hlt

@@ -1,0 +1,22 @@
+section .data
+    MAX: 1000
+    DIV1: 3
+    DIV2: 5
+
+section .text
+    movi #MAX !0
+    mov %rax 1
+    .loop: cmp %rax #MAX
+        jz .exit
+        mov %rbx %rax
+        mod %rbx #DIV1
+        jz .add
+        mov %rbx %rax
+        mod %rbx #DIV2
+        jz .add
+        jmp .next
+        .add: add %rdx %rax
+        .next: add %rax 1
+            jmp .loop
+        .exit: movo !1 %rdx
+            hlt
