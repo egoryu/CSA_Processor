@@ -3,18 +3,19 @@ import sys
 from typing import Callable
 
 from isa import read_code, parse_command, alu_commands, MAX_NUM, registers, Command, get_data_line, branch_commands, \
-    op_commands, one_op_commands, two_op_commands, zero_op_commands, binary_to_hex, MAX_MEMORY, is_integer
+    op_commands, one_op_commands, two_op_commands, zero_op_commands, binary_to_hex, MAX_MEMORY, is_integer, Commands, \
+    Registers
 
 ALU_OP_HANDLERS: dict[int, Callable[[int, int], int]] = {
-    op_commands.index('add'): lambda left, right: left + right,
-    op_commands.index('sub'): lambda left, right: left - right,
-    op_commands.index('mod'): lambda left, right: left % right,
-    op_commands.index('div'): lambda left, right: left // right,
-    op_commands.index('mul'): lambda left, right: left * right,
-    op_commands.index('xor'): lambda left, right: left ^ right,
-    op_commands.index('and'): lambda left, right: left & right,
-    op_commands.index('or'): lambda left, right: left | right,
-    op_commands.index('cmp'): lambda left, right: left - right,
+    op_commands.index(Commands.add): lambda left, right: left + right,
+    op_commands.index(Commands.sub): lambda left, right: left - right,
+    op_commands.index(Commands.mod): lambda left, right: left % right,
+    op_commands.index(Commands.div): lambda left, right: left // right,
+    op_commands.index(Commands.mul): lambda left, right: left * right,
+    op_commands.index(Commands.xor): lambda left, right: left ^ right,
+    op_commands.index(Commands.and_): lambda left, right: left & right,
+    op_commands.index(Commands.or_): lambda left, right: left | right,
+    op_commands.index(Commands.cmp): lambda left, right: left - right,
 }
 
 
@@ -60,12 +61,11 @@ class DataPath:
         self.data_memory_size = data_memory_size
         self.memory = data_memory + [format(0, '012x')] * (data_memory_size - len(data_memory))
         self.ports = ports
-        self.set_reg('rip', start_addr)
-        self.set_reg('rsp', data_memory_size - 1)
+        self.set_reg(Registers.rip, start_addr)
+        self.set_reg(Registers.rsp, data_memory_size - 1)
         self.prev = format(0, '012x')
 
     def __str__(self):
-        #return self.memory[self.get_reg('rip')]
         return self.prev
 
     def get_reg(self, reg: str) -> int:
@@ -96,14 +96,14 @@ class DataPath:
             self.memory[addr] = binary_to_hex(get_data_line(ord(self.ports[port].pop(0)[1])))
 
     def latch_ip(self, value: int = -1):
-        self.prev = self.memory[self.get_reg('rip')]
+        self.prev = self.memory[self.get_reg(Registers.rip)]
         if value >= 0:
-            self.set_reg('rip', value - 1)
+            self.set_reg(Registers.rip, value - 1)
         else:
-            self.set_reg('rip', self.get_reg('rip') + 1)
+            self.set_reg(Registers.rip, self.get_reg(Registers.rip) + 1)
 
     def get_instruction(self) -> str:
-        return self.memory[self.get_reg('rip')]
+        return self.memory[self.get_reg(Registers.rip)]
 
     def get_arg(self, arg_type: int, val: int = 0) -> int:
         if arg_type == 0:
@@ -127,7 +127,7 @@ class ControlUnit:
         self.instr_counter = 0  # счетчик чтобы машина не работала бесконечно
         self._tick = 0
         self.limit = limit
-        self.command = 'nop'
+        self.command = Commands.nop
 
     def tick(self):
         self._tick += 1
@@ -155,41 +155,41 @@ class ControlUnit:
     def update_interruption_state(self):
         input = self.data_path.ports[0]
         if len(input) and input[0][0] <= self.current_tick():
-            self.data_path.set_reg('rst', self.data_path.get_reg('rst') | 2)
+            self.data_path.set_reg(Registers.rst, self.data_path.get_reg(Registers.rst) | 2)
 
     def execute_interruption(self):
-        self.data_path.set_reg('rst', 0)
+        self.data_path.set_reg(Registers.rst, 0)
         self.tick()
 
-        self.data_path.wr(self.data_path.get_reg('rsp'), self.data_path.get_reg('rip'))
-        self.data_path.reg_add('rsp', -1)
+        self.data_path.wr(self.data_path.get_reg(Registers.rsp), self.data_path.get_reg(Registers.rip))
+        self.data_path.reg_add(Registers.rsp, -1)
         self.tick()
 
-        self.data_path.wr(self.data_path.get_reg('rsp'), self.data_path.get_reg('rax'))
-        self.data_path.reg_add('rsp', -1)
+        self.data_path.wr(self.data_path.get_reg(Registers.rsp), self.data_path.get_reg(Registers.rax))
+        self.data_path.reg_add(Registers.rsp, -1)
         self.tick()
 
-        self.data_path.rd('rip', 1)
+        self.data_path.rd(Registers.rip, 1)
         self.tick()
 
     def decode_and_execute_control_zero_arg_instruction(self, instr, opcode):
-        if opcode == 'ei':
-            self.data_path.set_reg('rst', self.data_path.get_reg('rst') | 1)
+        if opcode == Commands.ei:
+            self.data_path.set_reg(Registers.rst, self.data_path.get_reg(Registers.rst) | 1)
             self.tick()
-        if opcode == 'di':
-            self.data_path.set_reg('rst', self.data_path.get_reg('rst') & ~1)
+        if opcode == Commands.di:
+            self.data_path.set_reg(Registers.rst, self.data_path.get_reg(Registers.rst) & ~1)
             self.tick()
-        if opcode == 'iret':
-            self.data_path.reg_add('rsp', 1)
-            self.data_path.rd('rax', self.data_path.get_reg('rsp'))
-            self.tick()
-
-            self.data_path.reg_add('rsp', 1)
-            self.data_path.rd('rip', self.data_path.get_reg('rsp'))
-            self.data_path.reg_add('rip', -1)
+        if opcode == Commands.iret:
+            self.data_path.reg_add(Registers.rsp, 1)
+            self.data_path.rd(Registers.rax, self.data_path.get_reg(Registers.rsp))
             self.tick()
 
-            self.data_path.set_reg('rst', self.data_path.get_reg('rst') | 1)
+            self.data_path.reg_add(Registers.rsp, 1)
+            self.data_path.rd(Registers.rip, self.data_path.get_reg(Registers.rsp))
+            self.data_path.reg_add(Registers.rip, -1)
+            self.tick()
+
+            self.data_path.set_reg(Registers.rst, self.data_path.get_reg(Registers.rst) | 1)
             self.tick()
 
     def decode_and_execute_control_two_arg_instruction(self, instr, opcode):
@@ -199,7 +199,7 @@ class ControlUnit:
                 right = self.data_path.get_arg(instr.arg2_type, instr.arg2_value)
 
                 res = self.data_path.alu.perform(instr.command_type, left, right)
-                if opcode != 'cmp':
+                if opcode != Commands.cmp:
                     self.data_path.set_reg(registers[instr.arg1_value], res)
                     self.tick()
             else:
@@ -209,10 +209,10 @@ class ControlUnit:
                 self.tick()
 
                 res = self.data_path.alu.perform(instr.command_type, left, right)
-                if opcode != 'cmp':
+                if opcode != Commands.cmp:
                     self.data_path.wr(instr.arg1_value, res)
                     self.tick()
-        if opcode == 'mov':
+        if opcode == Commands.mov:
             if instr.arg1_type == 1:
                 right = self.data_path.get_arg(instr.arg2_type, instr.arg2_value)
                 self.data_path.alu.set_flags(right)
@@ -228,38 +228,35 @@ class ControlUnit:
 
                 self.data_path.wr(self.data_path.get_addr(instr.arg1_type, instr.arg1_value), right)
                 self.tick()
-        if opcode == 'movo':
+        if opcode == Commands.movo:
             self.data_path.wr_port(instr.arg1_value, self.data_path.get_arg(instr.arg2_type, instr.arg2_value))
             self.tick()
-        if opcode == 'movi':
+        if opcode == Commands.movi:
             self.data_path.rd_port(instr.arg2_value, instr.arg1_value)
             self.tick()
 
     def decode_and_execute_control_flow_instruction(self, instr, opcode):
-        """Декодировать и выполнить инструкцию управления потоком исполнения. В
-        случае успеха -- вернуть `True`, чтобы перейти к следующей инструкции.
-        """
 
-        if opcode == 'jmp':
+        if opcode == Commands.jmp:
             self.data_path.latch_ip(instr.arg1_value)
             self.tick()
 
-        if opcode == 'jz':
+        if opcode == Commands.jz:
             if self.data_path.alu.Z:
                 self.data_path.latch_ip(instr.arg1_value)
             self.tick()
 
-        if opcode == 'jnz':
+        if opcode == Commands.jnz:
             if not self.data_path.alu.Z:
                 self.data_path.latch_ip(instr.arg1_value)
             self.tick()
 
-        if opcode == 'jn':
+        if opcode == Commands.jn:
             if self.data_path.alu.N:
                 self.data_path.latch_ip(instr.arg1_value)
             self.tick()
 
-        if opcode == 'jp':
+        if opcode == Commands.jp:
             if not self.data_path.alu.N:
                 self.data_path.latch_ip(instr.arg1_value)
             self.tick()
@@ -270,7 +267,7 @@ class ControlUnit:
         self.tick()
         self.command = instr
 
-        if opcode == 'hlt':
+        if opcode == Commands.hlt:
             raise StopIteration()
 
         if opcode in branch_commands:
@@ -285,7 +282,7 @@ class ControlUnit:
 
     def interruption_cycle(self):
         self.update_interruption_state()
-        if self.data_path.get_reg('rst') & 1 and self.data_path.get_reg('rst') >> 1 & 1:
+        if self.data_path.get_reg(Registers.rst) & 1 and self.data_path.get_reg(Registers.rst) >> 1 & 1:
             self.execute_interruption()
 
     def __repr__(self):

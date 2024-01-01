@@ -1,17 +1,61 @@
 import re
+from enum import Enum
 from typing import Final
 
-registers: list[str] = ["rax", "rbx", "rdx", "rip", "rst", "rsp"]
-branch_commands: list[str] = ["jmp", "jz", "jnz", "jn", "jp"]
-alu_commands: list[str] = ["add", "sub", "mul", "div", "mod", "xor", "and", "or", "cmp"]
-two_op_commands: list[str] = alu_commands + ["mov", "movi", "movo"]
-one_op_commands: list[str] = branch_commands
-zero_op_commands: list[str] = ["iret", "di", "ei", "hlt"]
-op_commands: list[str] = ["nop"] + two_op_commands + one_op_commands + zero_op_commands
+
+class Registers(str, Enum):
+    rax = "rax"
+    rbx = "rbx"
+    rdx = "rdx"
+    rip = "rip"
+    rst = "rst"
+    rsp = "rsp"
+
+    def __str__(self) -> str:
+        return self.value
+
+
+class Commands(str, Enum):
+    jmp = "jmp"
+    jz = "jz"
+    jnz = "jnz"
+    jn = "jn"
+    jp = "jp"
+    add = "add"
+    sub = "sub"
+    mul = "mul"
+    div = "div"
+    mod = "mod"
+    xor = "xor"
+    and_ = "and"
+    or_ = "or"
+    cmp = "cmp"
+    mov = "mov"
+    movi = "movi"
+    movo = "movo"
+    iret = "iret"
+    di = "di"
+    ei = "ei"
+    hlt = "hlt"
+    nop = "nop"
+
+    def __str__(self) -> str:
+        return self.value
+
+
+registers: list[Registers] = [Registers.rax, Registers.rbx, Registers.rdx, Registers.rip, Registers.rst, Registers.rsp]
+branch_commands: list[Commands] = [Commands.jmp, Commands.jz, Commands.jnz, Commands.jn, Commands.jp]
+alu_commands: list[Commands] = [Commands.add, Commands.sub, Commands.mul, Commands.div, Commands.mod, Commands.xor,
+                                Commands.and_, Commands.or_, Commands.cmp]
+two_op_commands: list[Commands] = alu_commands + [Commands.mov, Commands.movi, Commands.movo]
+one_op_commands: list[Commands] = branch_commands
+zero_op_commands: list[Commands] = [Commands.iret, Commands.di, Commands.ei, Commands.hlt]
+op_commands: list[Commands] = [Commands.nop] + two_op_commands + one_op_commands + zero_op_commands
 
 RE_STR: Final = r'^(\'.*\')|(\".*\")$'
 MAX_NUM: Final = 1 << 15
 MAX_MEMORY: Final = 1 << 11
+
 
 class Instruction:
     def __init__(self, address: int, binary_code: str, mnemonic: str):
@@ -22,6 +66,7 @@ class Instruction:
     def __str__(self):
         return f"{self.address} {binary_to_hex(self.binary_code)} {self.mnemonic}"
 
+
 def get_type_adress(type: int, arg: int) -> str:
     if type == 0:
         return str(arg)
@@ -31,6 +76,7 @@ def get_type_adress(type: int, arg: int) -> str:
         return '#' + str(arg)
     else:
         return '!' + str(arg)
+
 
 class Command:
     def __init__(self, hex_string):
@@ -45,11 +91,14 @@ class Command:
         else:
             return f"{op_commands[self.command_type]}"
 
+
 def is_integer(string: str) -> bool:
     return bool(re.match(r'^-?\d+$', string))
 
+
 def is_string(string: str) -> bool:
     return bool(re.fullmatch(RE_STR, string))
+
 
 def int_to_binary(n: int) -> str:
     if n >= 0:
@@ -59,10 +108,15 @@ def int_to_binary(n: int) -> str:
 
     return binary
 
+
 def binary_to_hex(binary_code: str) -> str:
     return format(int(binary_code, 2), '012x')
+
+
 def get_data_line(line: int) -> str:
     return format(0, "012b") + int_to_binary(line) + format(0, "020b")
+
+
 def binary_to_integer(binary: str) -> int:
     if binary[0] == '1':
         complement = ''.join(['1' if x == '0' else '0' for x in binary])
@@ -71,6 +125,7 @@ def binary_to_integer(binary: str) -> int:
         integer = int(binary, 2)
 
     return integer
+
 
 def parse_command(hex_string):
     # Разбиваем строку на две части: первые 8 символов и остальную часть
@@ -94,10 +149,12 @@ def parse_command(hex_string):
 
     return command_type, arg1_type, arg1_value, arg2_type, arg2_value
 
+
 def write_code(instructions: list[Instruction], source: str):
     with open(source, "w") as file:
         for instruction in instructions:
             file.write(str(instruction) + "\n")
+
 
 def read_code(filename):
     instr: list[str] = []
