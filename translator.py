@@ -15,6 +15,7 @@ from isa import (
     Registers,
 )
 
+
 SECTION_TEXT: Final = "section .text"
 SECTION_DATA: Final = "section .data"
 
@@ -24,7 +25,7 @@ def remove_comment(line: str) -> str:
 
 
 def remove_spaces(line: str) -> str:
-    return re.sub(r"\s+", " ", line)
+    return re.sub(r'\s+', " ", line)
 
 
 def clean_text(asm_text: str) -> str:
