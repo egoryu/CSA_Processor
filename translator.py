@@ -168,9 +168,9 @@ def translate(code: str):
     text_index: int = code.find(SECTION_TEXT)
     data_index: int = code.find(SECTION_DATA)
 
-    variable, memory = parse_data_section(code[data_index + len(SECTION_DATA) + 1: text_index])
+    variable, memory = parse_data_section(code[data_index + len(SECTION_DATA) + 1 : text_index])
     memory[0] = len(memory)
-    text_code = parse_text_section(variable, code[text_index + len(SECTION_DATA) + 1:], memory[0])
+    text_code = parse_text_section(variable, code[text_index + len(SECTION_DATA) + 1 :], memory[0])
     return generate_binary(text_code, memory)
 
 
