@@ -1,6 +1,5 @@
 import sys
 import re
-from typing import Final
 from exception import UnexpectedDataValue, RepeatedVariableName
 from isa import (
     is_integer,
@@ -12,11 +11,8 @@ from isa import (
     int_to_binary,
     get_data_line,
     Commands,
-    Registers,
+    Registers, SECTION_TEXT, SECTION_DATA,
 )
-
-SECTION_TEXT: Final = "section .text"
-SECTION_DATA: Final = "section .data"
 
 
 def remove_comment(line: str) -> str:

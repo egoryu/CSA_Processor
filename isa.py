@@ -64,7 +64,8 @@ op_commands: list[Commands] = [Commands.nop] + two_op_commands + one_op_commands
 RE_STR: Final = r"^(\'.*\')|(\".*\")$"
 MAX_NUM: Final = 1 << 31
 MAX_MEMORY: Final = 1 << 11
-
+SECTION_TEXT: Final = "section .text"
+SECTION_DATA: Final = "section .data"
 
 class Instruction:
     def __init__(self, address: int, binary_code: str, mnemonic: str):
