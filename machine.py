@@ -82,7 +82,7 @@ class DataPath:
 
     def wr_port(self, port: int, val: int) -> None:
         self.ports[port].append(chr(val))
-        logging.debug("OUTPUT: " + str(self.ports[port][:-1]) + ' <- '
+        logging.info("OUTPUT: " + str(self.ports[port][:-1]) + ' <- '
                       + (str(self.ports[port][-1]) if str(self.ports[port][-1]) != '\n' else '\\n'))
 
     def rd(self, reg: str, addr: int) -> None:
@@ -90,10 +90,10 @@ class DataPath:
 
     def rd_port(self, port: int, addr: int) -> None:
         if is_integer(str(self.ports[port][0][1])):
-            logging.debug("INPUT: " + str(self.ports[port][0][1]))
+            logging.info("INPUT: " + str(self.ports[port][0][1]))
             self.memory[addr] = binary_to_hex(get_data_line(self.ports[port].pop(0)[1]))
         else:
-            logging.debug("INPUT: " + (self.ports[port][0][1] if self.ports[port][0][1] != '\n' else '\\n'))
+            logging.info("INPUT: " + (self.ports[port][0][1] if self.ports[port][0][1] != '\n' else '\\n'))
             self.memory[addr] = binary_to_hex(get_data_line(ord(self.ports[port].pop(0)[1])))
 
     def latch_ip(self, value: int = -1):
@@ -139,18 +139,18 @@ class ControlUnit:
         return self._tick
 
     def command_cycle(self):
-        logging.debug("%s", self)
+        logging.info("%s", self)
         try:
             while self.instr_counter < self.limit:
                 self.decode_and_execute_instruction()
                 self.data_path.latch_ip()
-                logging.debug("%s", self)
+                logging.info("%s", self)
                 self.instr_counter += 1
                 self.interruption_cycle()
         except EOFError:
             logging.warning("Input buffer is empty!")
         except StopIteration:
-            logging.debug("%s", self)
+            logging.info("%s", self)
 
         if self.instr_counter >= self.limit:
             logging.warning("Limit exceeded!")
