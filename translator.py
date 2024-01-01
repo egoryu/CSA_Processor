@@ -70,7 +70,6 @@ def parse_data_section(code: str) -> tuple[dict[str, int], list[int]]:
         variable[key] = len(memory)
         memory.extend([constant for constant in constant_mem])
 
-    print(memory)
     return variable, memory
 
 
@@ -117,7 +116,6 @@ def parse_text_section(variable: dict[str, int], code: str, cur: int):
 
     for line in code.splitlines():
         if line.startswith('.'):
-            print(line)
             name, command = map(str.strip, line.split(':', 1))
             labels[name] = cur
             line = command
@@ -164,9 +162,6 @@ def translate(code: str):
     memory[0] = len(memory)
     code = parse_text_section(variable, code[text_index + len(SECTION_DATA) + 1:], memory[0])
     binary_code = generate_binary(code, memory)
-
-    for line in binary_code:
-        print(line)
 
     return binary_code
 
