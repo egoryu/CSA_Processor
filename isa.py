@@ -67,7 +67,7 @@ class Instruction:
         return f"{self.address} {binary_to_hex(self.binary_code)} {self.mnemonic}"
 
 
-def get_type_adress(addr_type: int, arg: int) -> str:
+def get_type_address(addr_type: int, arg: int) -> str:
     if addr_type == 0:
         return str(arg)
     elif addr_type == 1:
@@ -85,10 +85,10 @@ class Command:
 
     def __str__(self):
         if op_commands[self.command_type] in two_op_commands:
-            return (f"{op_commands[self.command_type]} {get_type_adress(self.arg1_type, self.arg1_value)} "
-                    f"{get_type_adress(self.arg2_type, self.arg2_value)}")
+            return (f"{op_commands[self.command_type]} {get_type_address(self.arg1_type, self.arg1_value)} "
+                    f"{get_type_address(self.arg2_type, self.arg2_value)}")
         elif op_commands[self.command_type] in one_op_commands:
-            return f"{op_commands[self.command_type]} {get_type_adress(self.arg1_type, self.arg1_value)}"
+            return f"{op_commands[self.command_type]} {get_type_address(self.arg1_type, self.arg1_value)}"
         else:
             return f"{op_commands[self.command_type]}"
 
@@ -147,7 +147,7 @@ def write_code(instructions: list[Instruction], source: str):
             file.write(str(instruction) + "\n")
 
 
-def read_code(filename):
+def read_code(filename: str):
     instr: list[str] = []
 
     with open(filename, encoding="utf-8") as file:

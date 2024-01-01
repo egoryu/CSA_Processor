@@ -103,8 +103,8 @@ def generate_binary(code: list[str], data: list[int]):
     for line in data:
         binary_code.append(Instruction(cur, get_data_line(line), str(line)))
         cur += 1
-    for line in code:
-        binary_code.append(Instruction(cur, get_binary_line(line), line))
+    for line1 in code:
+        binary_code.append(Instruction(cur, get_binary_line(line1), line1))
         cur += 1
 
     return binary_code
@@ -160,8 +160,8 @@ def translate(code: str):
 
     variable, memory = parse_data_section(code[data_index + len(SECTION_DATA) + 1:text_index])
     memory[0] = len(memory)
-    code = parse_text_section(variable, code[text_index + len(SECTION_DATA) + 1:], memory[0])
-    binary_code = generate_binary(code, memory)
+    text_code = parse_text_section(variable, code[text_index + len(SECTION_DATA) + 1:], memory[0])
+    binary_code = generate_binary(text_code, memory)
 
     return binary_code
 

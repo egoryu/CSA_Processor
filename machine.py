@@ -1,6 +1,6 @@
 import logging
 import sys
-from typing import Callable
+from typing import Callable, Optional
 
 from isa import read_code, alu_commands, MAX_NUM, registers, Command, get_data_line, branch_commands, \
     op_commands, two_op_commands, zero_op_commands, binary_to_hex, MAX_MEMORY, is_integer, Commands, \
@@ -54,7 +54,7 @@ class DataPath:
     reg = {name: 0 for name in registers}
     memory: list[str] = []
     alu: ALU = ALU()
-    ports: dict[int, list] = []
+    ports: dict[int, list[str | tuple[int, str]]] = {}
 
     def __init__(self, data_memory, data_memory_size, ports, start_addr):
         assert data_memory_size > len(data_memory), "Data_memory size should be more"
@@ -68,13 +68,13 @@ class DataPath:
     def __str__(self):
         return self.prev
 
-    def get_reg(self, reg: str) -> int:
+    def get_reg(self, reg: Registers) -> int:
         return self.reg[reg]
 
-    def set_reg(self, reg: str, val: int) -> None:
+    def set_reg(self, reg: Registers, val: int) -> None:
         self.reg[reg] = val
 
-    def reg_add(self, reg: str, val: int) -> None:
+    def reg_add(self, reg: Registers, val: int) -> None:
         self.reg[reg] += val
 
     def wr(self, addr: int, value: int) -> None:
@@ -85,13 +85,13 @@ class DataPath:
         logging.info("OUTPUT: " + str(self.ports[port][:-1]) + ' <- '
                       + (str(self.ports[port][-1]) if str(self.ports[port][-1]) != '\n' else '\\n'))
 
-    def rd(self, reg: str, addr: int) -> None:
+    def rd(self, reg: Registers, addr: int) -> None:
         self.set_reg(reg, Command(self.memory[addr]).arg1_value)
 
     def rd_port(self, port: int, addr: int) -> None:
         if is_integer(str(self.ports[port][0][1])):
             logging.info("INPUT: " + str(self.ports[port][0][1]))
-            self.memory[addr] = binary_to_hex(get_data_line(self.ports[port].pop(0)[1]))
+            self.memory[addr] = binary_to_hex(get_data_line(int(self.ports[port].pop(0)[1])))
         else:
             logging.info("INPUT: " + (self.ports[port][0][1] if self.ports[port][0][1] != '\n' else '\\n'))
             self.memory[addr] = binary_to_hex(get_data_line(ord(self.ports[port].pop(0)[1])))
@@ -115,12 +115,16 @@ class DataPath:
             return Command(self.memory[val]).arg1_value
         elif arg_type == 4:
             return self.get_arg(2, Command(self.memory[val]).arg1_value)
+        else:
+            return 0
 
     def get_addr(self, arg_type: int, val: int) -> int:
         if arg_type == 2:
             return val
         elif arg_type == 4:
             return Command(self.memory[val]).arg1_value
+        else:
+            return 0
 
 
 class ControlUnit:
