@@ -1,22 +1,23 @@
 import logging
 import sys
 from typing import Callable
+
 from isa import (
-    read_code,
-    alu_commands,
-    MAX_NUM,
-    registers,
-    Command,
-    get_data_line,
-    branch_commands,
-    op_commands,
-    two_op_commands,
-    zero_op_commands,
-    binary_to_hex,
     MAX_MEMORY,
-    is_integer,
+    MAX_NUM,
+    Command,
     Commands,
     Registers,
+    alu_commands,
+    binary_to_hex,
+    branch_commands,
+    get_data_line,
+    is_integer,
+    op_commands,
+    read_code,
+    registers,
+    two_op_commands,
+    zero_op_commands,
 )
 
 ALU_OP_HANDLERS: dict[int, Callable[[int, int], int]] = {

@@ -1,17 +1,20 @@
-import sys
 import re
-from exception import UnexpectedDataValue, RepeatedVariableName
+import sys
+
+from exception import RepeatedVariableName, UnexpectedDataValue
 from isa import (
+    SECTION_DATA,
+    SECTION_TEXT,
+    Commands,
+    Instruction,
+    Registers,
+    get_data_line,
+    int_to_binary,
     is_integer,
     is_string,
-    Instruction,
     op_commands,
     registers,
     write_code,
-    int_to_binary,
-    get_data_line,
-    Commands,
-    Registers, SECTION_TEXT, SECTION_DATA,
 )
 
 
@@ -20,7 +23,7 @@ def remove_comment(line: str) -> str:
 
 
 def remove_spaces(line: str) -> str:
-    return re.sub(r'\s+', " ", line)
+    return re.sub(r"\s+", " ", line)
 
 
 def clean_text(asm_text: str) -> str:
