@@ -3,7 +3,8 @@ import re
 from typing import Final
 
 from exception import UnexpectedDataValue, RepeatedVariableName
-from isa import is_integer, is_string, Instruction, op_commands, registers, write_code, int_to_binary, get_data_line
+from isa import is_integer, is_string, Instruction, op_commands, registers, write_code, int_to_binary, get_data_line, \
+    Commands, Registers
 
 SECTION_TEXT: Final = 'section .text'
 SECTION_DATA: Final = 'section .data'
@@ -24,9 +25,9 @@ def clean_text(asm_text: str) -> str:
     strip_lines = map(str.strip, remove_comments)
     remove_empty_lines = filter(bool, strip_lines)
     remove_extra_spaces = map(remove_spaces, remove_empty_lines)
-    clean_text: str = '\n'.join(remove_extra_spaces)
+    cleaned_text: str = '\n'.join(remove_extra_spaces)
 
-    return clean_text
+    return cleaned_text
 
 
 def parse_data_line(line: str, variable: dict[str, int]) -> tuple[str, list[int]]:
@@ -50,6 +51,8 @@ def parse_data_line(line: str, variable: dict[str, int]) -> tuple[str, list[int]
         constant_mem = [variable[value]]
 
     return key, constant_mem
+
+
 def parse_data_section(code: str) -> tuple[dict[str, int], list[int]]:
     variable: dict[str, int] = {
         'JMPS': 0,
@@ -70,27 +73,29 @@ def parse_data_section(code: str) -> tuple[dict[str, int], list[int]]:
     print(memory)
     return variable, memory
 
+
 def get_binary_line(line: str) -> str:
-    words = line.split(' ')
-    op_code = format(op_commands.index(words[0]), "08b")
+    words: list[str] = line.split(' ')
+    op_code = format(op_commands.index(Commands(words[0])), "08b")
     for word in words[1:]:
         arg: str
         if word.startswith('%'):
-            arg = format(1, "04b") + format(registers.index(word[1:]), "016b")
+            arg = format(1, "04b") + format(registers.index(Registers(word[1:])), "032b")
         elif word.startswith('#'):
-            arg = format(2, "04b") + format(int(word[1:]), "016b")
+            arg = format(2, "04b") + format(int(word[1:]), "032b")
         elif word.startswith('!'):
-            arg = format(3, "04b") + format(int(word[1:]), "016b")
+            arg = format(3, "04b") + format(int(word[1:]), "032b")
         elif word.startswith('*'):
-            arg = format(4, "04b") + format(int(word[1:]), "016b")
+            arg = format(4, "04b") + format(int(word[1:]), "032b")
         else:
             arg = format(0, "04b") + int_to_binary(int(word))
         op_code += arg
 
     for _ in range(3 - len(words)):
-        op_code += format(0, "020b")
+        op_code += format(0, "036b")
 
     return op_code
+
 
 def generate_binary(code: list[str], data: list[int]):
     binary_code: list[Instruction] = []
@@ -105,12 +110,14 @@ def generate_binary(code: list[str], data: list[int]):
 
     return binary_code
 
+
 def parse_text_section(variable: dict[str, int], code: str, cur: int):
     lines: list[str] = []
     labels: dict[str, int] = {}
 
     for line in code.splitlines():
         if line.startswith('.'):
+            print(line)
             name, command = map(str.strip, line.split(':', 1))
             labels[name] = cur
             line = command
@@ -119,8 +126,8 @@ def parse_text_section(variable: dict[str, int], code: str, cur: int):
         if len(string) <= 3:
             lines.append(line)
         else:
-            name, argS, *args = string
-            lines.extend([name + ' ' + argS + ' ' + arg for arg in args])
+            name, arg_s, *args = string
+            lines.extend([name + ' ' + arg_s + ' ' + arg for arg in args])
             cur += len(args) - 1
 
         cur += 1
@@ -158,24 +165,21 @@ def translate(code: str):
     code = parse_text_section(variable, code[text_index + len(SECTION_DATA) + 1:], memory[0])
     binary_code = generate_binary(code, memory)
 
-    print(variable)
-    print(memory)
-    print(code)
-
     for line in binary_code:
         print(line)
 
     return binary_code
 
-def main(source, target):
-    with open(source, encoding="utf-8") as f:
-        source = f.read()
 
-    source = clean_text(source)
-    code = translate(source)
+def main(source_file, target_file):
+    with open(source_file, encoding="utf-8") as f:
+        source_file = f.read()
 
-    write_code(code, target)
-    print("source LoC:", len(source.split("\n")), "code instr:", len(code))
+    source_file = clean_text(source_file)
+    code = translate(source_file)
+
+    write_code(code, target_file)
+    print("source LoC:", len(source_file.split("\n")), "code instr:", len(code))
 
 
 if __name__ == "__main__":

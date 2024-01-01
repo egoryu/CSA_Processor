@@ -2,8 +2,8 @@ import logging
 import sys
 from typing import Callable
 
-from isa import read_code, parse_command, alu_commands, MAX_NUM, registers, Command, get_data_line, branch_commands, \
-    op_commands, one_op_commands, two_op_commands, zero_op_commands, binary_to_hex, MAX_MEMORY, is_integer, Commands, \
+from isa import read_code, alu_commands, MAX_NUM, registers, Command, get_data_line, branch_commands, \
+    op_commands, two_op_commands, zero_op_commands, binary_to_hex, MAX_MEMORY, is_integer, Commands, \
     Registers
 
 ALU_OP_HANDLERS: dict[int, Callable[[int, int], int]] = {
@@ -82,7 +82,8 @@ class DataPath:
 
     def wr_port(self, port: int, val: int) -> None:
         self.ports[port].append(chr(val))
-        logging.debug("OUTPUT: " + str(self.ports[port][:-1]) + ' <- ' + (str(self.ports[port][-1]) if str(self.ports[port][-1]) != '\n' else '\\n'))
+        logging.debug("OUTPUT: " + str(self.ports[port][:-1]) + ' <- '
+                      + (str(self.ports[port][-1]) if str(self.ports[port][-1]) != '\n' else '\\n'))
 
     def rd(self, reg: str, addr: int) -> None:
         self.set_reg(reg, Command(self.memory[addr]).arg1_value)
@@ -121,13 +122,15 @@ class DataPath:
         elif arg_type == 4:
             return Command(self.memory[val]).arg1_value
 
+
 class ControlUnit:
     def __init__(self, data_path, limit):
         self.data_path = data_path
-        self.instr_counter = 0  # счетчик чтобы машина не работала бесконечно
+        self.instr_counter = 0
         self._tick = 0
         self.limit = limit
         self.command = Commands.nop
+        self.mode = ""
 
     def tick(self):
         self._tick += 1
@@ -153,11 +156,12 @@ class ControlUnit:
             logging.warning("Limit exceeded!")
 
     def update_interruption_state(self):
-        input = self.data_path.ports[0]
-        if len(input) and input[0][0] <= self.current_tick():
+        input_port = self.data_path.ports[0]
+        if len(input_port) and input_port[0][0] <= self.current_tick():
             self.data_path.set_reg(Registers.rst, self.data_path.get_reg(Registers.rst) | 2)
 
     def execute_interruption(self):
+        self.mode = "TRAP:"
         self.data_path.set_reg(Registers.rst, 0)
         self.tick()
 
@@ -172,7 +176,7 @@ class ControlUnit:
         self.data_path.rd(Registers.rip, 1)
         self.tick()
 
-    def decode_and_execute_control_zero_arg_instruction(self, instr, opcode):
+    def decode_and_execute_control_zero_arg_instruction(self, opcode):
         if opcode == Commands.ei:
             self.data_path.set_reg(Registers.rst, self.data_path.get_reg(Registers.rst) | 1)
             self.tick()
@@ -180,6 +184,7 @@ class ControlUnit:
             self.data_path.set_reg(Registers.rst, self.data_path.get_reg(Registers.rst) & ~1)
             self.tick()
         if opcode == Commands.iret:
+            self.mode = ""
             self.data_path.reg_add(Registers.rsp, 1)
             self.data_path.rd(Registers.rax, self.data_path.get_reg(Registers.rsp))
             self.tick()
@@ -277,8 +282,7 @@ class ControlUnit:
             self.decode_and_execute_control_two_arg_instruction(instr, opcode)
 
         if opcode in zero_op_commands:
-            self.decode_and_execute_control_zero_arg_instruction(instr, opcode)
-
+            self.decode_and_execute_control_zero_arg_instruction(opcode)
 
     def interruption_cycle(self):
         self.update_interruption_state()
@@ -287,7 +291,8 @@ class ControlUnit:
 
     def __repr__(self):
         register_values = ', '.join(f"{name}: {value}" for name, value in self.data_path.reg.items())
-        return f"Tick: {self.current_tick()} | Registers: {register_values} Flags: {self.data_path.alu} | Instruction: {self.command}"
+        return (f"{self.mode}Tick: {self.current_tick()} | Registers: {register_values} "
+                f"Flags: {self.data_path.alu} | Instruction: {self.command}")
 
 
 def simulation(code, input_tokens, memory_size, limit, start_addr):
@@ -298,15 +303,15 @@ def simulation(code, input_tokens, memory_size, limit, start_addr):
     return "".join(data_path.ports[1]), control_unit.instr_counter, control_unit.current_tick()
 
 
-def main(code_file, input_file):
-    with open(input_file, encoding="utf-8") as file:
+def main(codes_file, inputs_file):
+    with open(inputs_file, encoding="utf-8") as file:
         input_text = file.read()
         if not input_text:
             input_token = []
         else:
             input_token = eval(input_text)
 
-    start_addr, code = read_code(code_file)
+    start_addr, code = read_code(codes_file)
     output, instr_counter, ticks = simulation(
         code,
         input_tokens=input_token,

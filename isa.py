@@ -53,7 +53,7 @@ zero_op_commands: list[Commands] = [Commands.iret, Commands.di, Commands.ei, Com
 op_commands: list[Commands] = [Commands.nop] + two_op_commands + one_op_commands + zero_op_commands
 
 RE_STR: Final = r'^(\'.*\')|(\".*\")$'
-MAX_NUM: Final = 1 << 15
+MAX_NUM: Final = 1 << 31
 MAX_MEMORY: Final = 1 << 11
 
 
@@ -67,12 +67,12 @@ class Instruction:
         return f"{self.address} {binary_to_hex(self.binary_code)} {self.mnemonic}"
 
 
-def get_type_adress(type: int, arg: int) -> str:
-    if type == 0:
+def get_type_adress(addr_type: int, arg: int) -> str:
+    if addr_type == 0:
         return str(arg)
-    elif type == 1:
+    elif addr_type == 1:
         return '%' + registers[arg]
-    elif type == 2:
+    elif addr_type == 2:
         return '#' + str(arg)
     else:
         return '!' + str(arg)
@@ -85,7 +85,8 @@ class Command:
 
     def __str__(self):
         if op_commands[self.command_type] in two_op_commands:
-            return f"{op_commands[self.command_type]} {get_type_adress(self.arg1_type, self.arg1_value)} {get_type_adress(self.arg2_type, self.arg2_value)}"
+            return (f"{op_commands[self.command_type]} {get_type_adress(self.arg1_type, self.arg1_value)} "
+                    f"{get_type_adress(self.arg2_type, self.arg2_value)}")
         elif op_commands[self.command_type] in one_op_commands:
             return f"{op_commands[self.command_type]} {get_type_adress(self.arg1_type, self.arg1_value)}"
         else:
@@ -102,19 +103,19 @@ def is_string(string: str) -> bool:
 
 def int_to_binary(n: int) -> str:
     if n >= 0:
-        binary = format(n, "016b")
+        binary = format(n, "032b")
     else:
-        binary = format(n & 0xffff, "016b")
+        binary = format(n & 0xffffffff, "032b")
 
     return binary
 
 
 def binary_to_hex(binary_code: str) -> str:
-    return format(int(binary_code, 2), '012x')
+    return format(int(binary_code, 2), '020x')
 
 
 def get_data_line(line: int) -> str:
-    return format(0, "012b") + int_to_binary(line) + format(0, "020b")
+    return format(0, "012b") + int_to_binary(line) + format(0, "036b")
 
 
 def binary_to_integer(binary: str) -> int:
@@ -128,24 +129,14 @@ def binary_to_integer(binary: str) -> int:
 
 
 def parse_command(hex_string):
-    # Разбиваем строку на две части: первые 8 символов и остальную часть
-    first_8_bits = hex_string[:2]
-    remaining_bits = hex_string[2:]
+    command = hex_string[:2]
+    data = hex_string[2:]
 
-    # Получаем тип команды из первых 8 битов
-    command_type = int(first_8_bits, 16)
-
-    # Получаем тип первого аргумента из первых 2 битов оставшейся части
-    arg1_type = int(remaining_bits[:1], 16)
-
-    # Получаем значение первого аргумента из следующих 4 битов оставшейся части
-    arg1_value = binary_to_integer(format(int(remaining_bits[1:5], 16), "016b"))
-
-    # Получаем тип второго аргумента из следующих 2 битов оставшейся части
-    arg2_type = int(remaining_bits[5:6], 16)
-
-    # Получаем значение второго аргумента из следующих 4 битов оставшейся части
-    arg2_value = binary_to_integer(format(int(remaining_bits[6:10], 16), "016b"))
+    command_type = int(command, 16)
+    arg1_type = int(data[:1], 16)
+    arg1_value = binary_to_integer(format(int(data[1:9], 16), "032b"))
+    arg2_type = int(data[9:10], 16)
+    arg2_value = binary_to_integer(format(int(data[10:18], 16), "032b"))
 
     return command_type, arg1_type, arg1_value, arg2_type, arg2_value
 
