@@ -5,6 +5,7 @@ class UnexpectedDataValue(Exception):
     def __str__(self):
         return f"Unexpected data value: {self.value}"
 
+
 class RepeatedVariableName(Exception):
     def __init__(self, variable_name):
         self.variable_name = variable_name

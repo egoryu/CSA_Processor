@@ -1,6 +1,6 @@
 import logging
 import sys
-from typing import Callable, Optional
+from typing import Callable
 
 from isa import read_code, alu_commands, MAX_NUM, registers, Command, get_data_line, branch_commands, \
     op_commands, two_op_commands, zero_op_commands, binary_to_hex, MAX_MEMORY, is_integer, Commands, \
@@ -82,8 +82,8 @@ class DataPath:
 
     def wr_port(self, port: int, val: int) -> None:
         self.ports[port].append(chr(val))
-        logging.info("OUTPUT: " + str(self.ports[port][:-1]) + ' <- '
-                      + (str(self.ports[port][-1]) if str(self.ports[port][-1]) != '\n' else '\\n'))
+        logging.info("OUTPUT: " + str(self.ports[port][:-1]) + ' <- ' +
+                     (str(self.ports[port][-1]) if str(self.ports[port][-1]) != '\n' else '\\n'))
 
     def rd(self, reg: Registers, addr: int) -> None:
         self.set_reg(reg, Command(self.memory[addr]).arg1_value)
