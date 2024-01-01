@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import logging
 import sys
 from typing import Callable
@@ -65,16 +67,16 @@ class ALU:
 
 
 class DataPath:
-    reg = {name: 0 for name in registers}
-    memory: list[str] = []
+    memory: list[str]
     alu: ALU = ALU()
-    ports: dict[int, list[str | tuple[int, str]]] = {}
+    ports: dict[int, list[str | tuple[int, str]]]
 
     def __init__(self, data_memory, data_memory_size, ports, start_addr):
         assert data_memory_size > len(data_memory), "Data_memory size should be more"
         self.data_memory_size = data_memory_size
         self.memory = data_memory + [format(0, "012x")] * (data_memory_size - len(data_memory))
         self.ports = ports
+        self.reg = {name: 0 for name in registers}
         self.set_reg(Registers.rip, start_addr)
         self.set_reg(Registers.rsp, data_memory_size - 1)
         self.prev = format(0, "012x")
@@ -127,22 +129,22 @@ class DataPath:
     def get_arg(self, arg_type: int, val: int = 0) -> int:
         if arg_type == 0:
             return val
-        elif arg_type == 1:
+        if arg_type == 1:
             return self.get_reg(registers[val])
-        elif arg_type == 2:
+        if arg_type == 2:
             return Command(self.memory[val]).arg1_value
-        elif arg_type == 4:
+        if arg_type == 4:
             return self.get_arg(2, Command(self.memory[val]).arg1_value)
-        else:
-            return 0
+
+        return 0
 
     def get_addr(self, arg_type: int, val: int) -> int:
         if arg_type == 2:
             return val
-        elif arg_type == 4:
+        if arg_type == 4:
             return Command(self.memory[val]).arg1_value
-        else:
-            return 0
+
+        return 0
 
 
 class ControlUnit:

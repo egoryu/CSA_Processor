@@ -3,7 +3,6 @@ from __future__ import annotations
 import re
 import sys
 
-from exception import RepeatedVariableName, UnexpectedDataValue
 from isa import (
     SECTION_DATA,
     SECTION_TEXT,
@@ -51,7 +50,7 @@ def parse_data_line(line: str, variable: dict[str, int]) -> tuple[str, list[int]
         elif len(param) == 2:
             constant_mem = [0 for _ in range(int(param[2]))]
         else:
-            raise UnexpectedDataValue(value)
+            raise ValueError(value)
     elif is_integer(value):
         constant_mem = [int(value)]
     elif is_string(value):
@@ -76,7 +75,7 @@ def parse_data_section(code: str) -> tuple[dict[str, int], list[int]]:
     for line in code.splitlines():
         key, constant_mem = parse_data_line(line, variable)
         if key in variable:
-            raise RepeatedVariableName(key)
+            raise KeyError(key)
         variable[key] = len(memory)
         memory.extend([constant for constant in constant_mem])
 
