@@ -15,7 +15,6 @@ from isa import (
     Registers,
 )
 
-
 SECTION_TEXT: Final = "section .text"
 SECTION_DATA: Final = "section .data"
 
