@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import re
 from enum import Enum
 from typing import Final
@@ -47,10 +49,10 @@ registers: list[Registers] = [Registers.rax, Registers.rbx, Registers.rdx, Regis
 branch_commands: list[Commands] = [Commands.jmp, Commands.jz, Commands.jnz, Commands.jn, Commands.jp]
 alu_commands: list[Commands] = [Commands.add, Commands.sub, Commands.mul, Commands.div, Commands.mod, Commands.xor,
                                 Commands.and_, Commands.or_, Commands.cmp]
-two_op_commands: list[Commands] = alu_commands + [Commands.mov, Commands.movi, Commands.movo]
+two_op_commands: list[Commands] = [*alu_commands, Commands.mov, Commands.movi, Commands.movo]
 one_op_commands: list[Commands] = branch_commands
 zero_op_commands: list[Commands] = [Commands.iret, Commands.di, Commands.ei, Commands.hlt]
-op_commands: list[Commands] = [Commands.nop] + two_op_commands + one_op_commands + zero_op_commands
+op_commands: list[Commands] = [Commands.nop, *two_op_commands, *one_op_commands, *zero_op_commands]
 
 RE_STR: Final = r"^(\'.*\')|(\".*\")$"
 SECTION_TEXT: Final = "section .text"

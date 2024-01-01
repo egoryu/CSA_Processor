@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import re
 import sys
 
@@ -169,9 +171,7 @@ def translate(code: str):
     variable, memory = parse_data_section(code[data_index + len(SECTION_DATA) + 1: text_index])
     memory[0] = len(memory)
     text_code = parse_text_section(variable, code[text_index + len(SECTION_DATA) + 1:], memory[0])
-    binary_code = generate_binary(text_code, memory)
-
-    return binary_code
+    return generate_binary(text_code, memory)
 
 
 def main(source_file, target_file):
