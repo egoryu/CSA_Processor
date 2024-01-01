@@ -1,10 +1,23 @@
 import logging
 import sys
 from typing import Callable
-
-from isa import read_code, alu_commands, MAX_NUM, registers, Command, get_data_line, branch_commands, \
-    op_commands, two_op_commands, zero_op_commands, binary_to_hex, MAX_MEMORY, is_integer, Commands, \
-    Registers
+from isa import (
+    read_code,
+    alu_commands,
+    MAX_NUM,
+    registers,
+    Command,
+    get_data_line,
+    branch_commands,
+    op_commands,
+    two_op_commands,
+    zero_op_commands,
+    binary_to_hex,
+    MAX_MEMORY,
+    is_integer,
+    Commands,
+    Registers,
+)
 
 ALU_OP_HANDLERS: dict[int, Callable[[int, int], int]] = {
     op_commands.index(Commands.add): lambda left, right: left + right,
@@ -59,11 +72,11 @@ class DataPath:
     def __init__(self, data_memory, data_memory_size, ports, start_addr):
         assert data_memory_size > len(data_memory), "Data_memory size should be more"
         self.data_memory_size = data_memory_size
-        self.memory = data_memory + [format(0, '012x')] * (data_memory_size - len(data_memory))
+        self.memory = data_memory + [format(0, "012x")] * (data_memory_size - len(data_memory))
         self.ports = ports
         self.set_reg(Registers.rip, start_addr)
         self.set_reg(Registers.rsp, data_memory_size - 1)
-        self.prev = format(0, '012x')
+        self.prev = format(0, "012x")
 
     def __str__(self):
         return self.prev
@@ -82,8 +95,12 @@ class DataPath:
 
     def wr_port(self, port: int, val: int) -> None:
         self.ports[port].append(chr(val))
-        logging.info("OUTPUT: " + str(self.ports[port][:-1]) + ' <- ' +
-                     (str(self.ports[port][-1]) if str(self.ports[port][-1]) != '\n' else '\\n'))
+        logging.info(
+            "OUTPUT: "
+            + str(self.ports[port][:-1])
+            + " <- "
+            + (str(self.ports[port][-1]) if str(self.ports[port][-1]) != "\n" else "\\n")
+        )
 
     def rd(self, reg: Registers, addr: int) -> None:
         self.set_reg(reg, Command(self.memory[addr]).arg1_value)
@@ -93,7 +110,7 @@ class DataPath:
             logging.info("INPUT: " + str(self.ports[port][0][1]))
             self.memory[addr] = binary_to_hex(get_data_line(int(self.ports[port].pop(0)[1])))
         else:
-            logging.info("INPUT: " + (self.ports[port][0][1] if self.ports[port][0][1] != '\n' else '\\n'))
+            logging.info("INPUT: " + (self.ports[port][0][1] if self.ports[port][0][1] != "\n" else "\\n"))
             self.memory[addr] = binary_to_hex(get_data_line(ord(self.ports[port].pop(0)[1])))
 
     def latch_ip(self, value: int = -1):
@@ -245,7 +262,6 @@ class ControlUnit:
             self.tick()
 
     def decode_and_execute_control_flow_instruction(self, instr, opcode):
-
         if opcode == Commands.jmp:
             self.data_path.latch_ip(instr.arg1_value)
             self.tick()
@@ -294,9 +310,11 @@ class ControlUnit:
             self.execute_interruption()
 
     def __repr__(self):
-        register_values = ', '.join(f"{name}: {value}" for name, value in self.data_path.reg.items())
-        return (f"{self.mode}Tick: {self.current_tick()} | Registers: {register_values} "
-                f"Flags: {self.data_path.alu} | Instruction: {self.command}")
+        register_values = ", ".join(f"{name}: {value}" for name, value in self.data_path.reg.items())
+        return (
+            f"{self.mode}Tick: {self.current_tick()} | Registers: {register_values} "
+            f"Flags: {self.data_path.alu} | Instruction: {self.command}"
+        )
 
 
 def simulation(code, input_tokens, memory_size, limit, start_addr):
@@ -317,11 +335,7 @@ def main(codes_file, inputs_file):
 
     start_addr, code = read_code(codes_file)
     output, instr_counter, ticks = simulation(
-        code,
-        input_tokens=input_token,
-        memory_size=MAX_MEMORY,
-        limit=20000,
-        start_addr=start_addr
+        code, input_tokens=input_token, memory_size=MAX_MEMORY, limit=20000, start_addr=start_addr
     )
 
     print("".join(output))

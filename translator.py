@@ -1,21 +1,30 @@
 import sys
 import re
 from typing import Final
-
 from exception import UnexpectedDataValue, RepeatedVariableName
-from isa import is_integer, is_string, Instruction, op_commands, registers, write_code, int_to_binary, get_data_line, \
-    Commands, Registers
+from isa import (
+    is_integer,
+    is_string,
+    Instruction,
+    op_commands,
+    registers,
+    write_code,
+    int_to_binary,
+    get_data_line,
+    Commands,
+    Registers,
+)
 
-SECTION_TEXT: Final = 'section .text'
-SECTION_DATA: Final = 'section .data'
+SECTION_TEXT: Final = "section .text"
+SECTION_DATA: Final = "section .data"
 
 
 def remove_comment(line: str) -> str:
-    return re.sub(r';.*', '', line)
+    return re.sub(r";.*", "", line)
 
 
 def remove_spaces(line: str) -> str:
-    return re.sub(r'\s+', ' ', line)
+    return re.sub(r"\s+", " ", line)
 
 
 def clean_text(asm_text: str) -> str:
@@ -25,17 +34,17 @@ def clean_text(asm_text: str) -> str:
     strip_lines = map(str.strip, remove_comments)
     remove_empty_lines = filter(bool, strip_lines)
     remove_extra_spaces = map(remove_spaces, remove_empty_lines)
-    cleaned_text: str = '\n'.join(remove_extra_spaces)
+    cleaned_text: str = "\n".join(remove_extra_spaces)
 
     return cleaned_text
 
 
 def parse_data_line(line: str, variable: dict[str, int]) -> tuple[str, list[int]]:
-    key, value = map(str.strip, line.split(':', 1))
+    key, value = map(str.strip, line.split(":", 1))
 
     constant_mem: list[int]
-    if value.startswith('buf '):
-        param = value.split(' ')
+    if value.startswith("buf "):
+        param = value.split(" ")
         if len(param) == 3:
             constant_mem = [int(param[2]) for _ in range(int(param[1]))]
         elif len(param) == 2:
@@ -55,8 +64,8 @@ def parse_data_line(line: str, variable: dict[str, int]) -> tuple[str, list[int]
 
 def parse_data_section(code: str) -> tuple[dict[str, int], list[int]]:
     variable: dict[str, int] = {
-        'JMPS': 0,
-        'INT': 1,
+        "JMPS": 0,
+        "INT": 1,
     }
     memory: list[int] = [
         0,
@@ -74,17 +83,17 @@ def parse_data_section(code: str) -> tuple[dict[str, int], list[int]]:
 
 
 def get_binary_line(line: str) -> str:
-    words: list[str] = line.split(' ')
+    words: list[str] = line.split(" ")
     op_code = format(op_commands.index(Commands(words[0])), "08b")
     for word in words[1:]:
         arg: str
-        if word.startswith('%'):
+        if word.startswith("%"):
             arg = format(1, "04b") + format(registers.index(Registers(word[1:])), "032b")
-        elif word.startswith('#'):
+        elif word.startswith("#"):
             arg = format(2, "04b") + format(int(word[1:]), "032b")
-        elif word.startswith('!'):
+        elif word.startswith("!"):
             arg = format(3, "04b") + format(int(word[1:]), "032b")
-        elif word.startswith('*'):
+        elif word.startswith("*"):
             arg = format(4, "04b") + format(int(word[1:]), "032b")
         else:
             arg = format(0, "04b") + int_to_binary(int(word))
@@ -115,40 +124,40 @@ def parse_text_section(variable: dict[str, int], code: str, cur: int):
     labels: dict[str, int] = {}
 
     for line in code.splitlines():
-        if line.startswith('.'):
-            name, command = map(str.strip, line.split(':', 1))
+        if line.startswith("."):
+            name, command = map(str.strip, line.split(":", 1))
             labels[name] = cur
             line = command
 
-        string = line.split(' ')
+        string = line.split(" ")
         if len(string) <= 3:
             lines.append(line)
         else:
             name, arg_s, *args = string
-            lines.extend([name + ' ' + arg_s + ' ' + arg for arg in args])
+            lines.extend([name + " " + arg_s + " " + arg for arg in args])
             cur += len(args) - 1
 
         cur += 1
 
     for index, line in enumerate(lines):
-        words = line.split(' ')
+        words = line.split(" ")
         if len(words) == 1:
             continue
 
         ans: str
         ans = words[0]
         for word in words[1:]:
-            if is_integer(word) or word.startswith('%') or word.startswith('!'):
-                ans += ' ' + word
-            elif word.startswith('#'):
-                ans += ' #' + str(variable[word[1:]])
-            elif word.startswith('.'):
-                ans += ' ' + str(labels[word])
-            elif word.startswith('*'):
-                ans += ' *' + str(variable[word[1:]])
+            if is_integer(word) or word.startswith("%") or word.startswith("!"):
+                ans += " " + word
+            elif word.startswith("#"):
+                ans += " #" + str(variable[word[1:]])
+            elif word.startswith("."):
+                ans += " " + str(labels[word])
+            elif word.startswith("*"):
+                ans += " *" + str(variable[word[1:]])
             else:
-                name, offset = word.split('[')
-                ans += ' #' + str(variable[name] + int(offset[:-1]))
+                name, offset = word.split("[")
+                ans += " #" + str(variable[name] + int(offset[:-1]))
         lines[index] = ans
 
     return lines
@@ -158,7 +167,7 @@ def translate(code: str):
     text_index: int = code.find(SECTION_TEXT)
     data_index: int = code.find(SECTION_DATA)
 
-    variable, memory = parse_data_section(code[data_index + len(SECTION_DATA) + 1:text_index])
+    variable, memory = parse_data_section(code[data_index + len(SECTION_DATA) + 1: text_index])
     memory[0] = len(memory)
     text_code = parse_text_section(variable, code[text_index + len(SECTION_DATA) + 1:], memory[0])
     binary_code = generate_binary(text_code, memory)
