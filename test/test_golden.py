@@ -13,10 +13,10 @@ import translator
 def test_translator_and_machine(golden, caplog):
     caplog.set_level(logging.INFO)
 
-    with tempfile.TemporaryDirectory() as tmpdirname:
-        source = os.path.join(tmpdirname, "source.myasm")
-        input_stream = os.path.join(tmpdirname, "input.txt")
-        target = os.path.join(tmpdirname, "target.0")
+    with tempfile.TemporaryDirectory() as tmp_dir_name:
+        source = os.path.join(tmp_dir_name, "source.myasm")
+        input_stream = os.path.join(tmp_dir_name, "input.txt")
+        target = os.path.join(tmp_dir_name, "target.0")
 
         with open(source, "w", encoding="utf-8") as file:
             file.write(golden["in_source"])

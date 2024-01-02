@@ -47,8 +47,17 @@ class Commands(str, Enum):
 
 registers: list[Registers] = [Registers.rax, Registers.rbx, Registers.rdx, Registers.rip, Registers.rst, Registers.rsp]
 branch_commands: list[Commands] = [Commands.jmp, Commands.jz, Commands.jnz, Commands.jn, Commands.jp]
-alu_commands: list[Commands] = [Commands.add, Commands.sub, Commands.mul, Commands.div, Commands.mod, Commands.xor,
-                                Commands.and_, Commands.or_, Commands.cmp]
+alu_commands: list[Commands] = [
+    Commands.add,
+    Commands.sub,
+    Commands.mul,
+    Commands.div,
+    Commands.mod,
+    Commands.xor,
+    Commands.and_,
+    Commands.or_,
+    Commands.cmp,
+]
 two_op_commands: list[Commands] = [*alu_commands, Commands.mov, Commands.movi, Commands.movo]
 one_op_commands: list[Commands] = branch_commands
 zero_op_commands: list[Commands] = [Commands.iret, Commands.di, Commands.ei, Commands.hlt]
