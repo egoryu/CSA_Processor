@@ -119,26 +119,7 @@ def generate_binary(code: list[str], data: list[int]):
     return binary_code
 
 
-def parse_text_section(variable: dict[str, int], code: str, cur: int):
-    lines: list[str] = []
-    labels: dict[str, int] = {}
-
-    for line in code.splitlines():
-        if line.startswith("."):
-            name, command = map(str.strip, line.split(":", 1))
-            labels[name] = cur
-            line = command
-
-        string = line.split(" ")
-        if len(string) <= 3:
-            lines.append(line)
-        else:
-            name, arg_s, *args = string
-            lines.extend([name + " " + arg_s + " " + arg for arg in args])
-            cur += len(args) - 1
-
-        cur += 1
-
+def address_line(lines: list[str], labels: dict[str, int], variable: dict[str, int]):
     for index, line in enumerate(lines):
         words = line.split(" ")
         if len(words) == 1:
@@ -163,13 +144,36 @@ def parse_text_section(variable: dict[str, int], code: str, cur: int):
     return lines
 
 
+def parse_text_section(variable: dict[str, int], code: str, cur: int):
+    lines: list[str] = []
+    labels: dict[str, int] = {}
+
+    for line in code.splitlines():
+        if line.startswith("."):
+            name, command = map(str.strip, line.split(":", 1))
+            labels[name] = cur
+            line = command
+
+        string = line.split(" ")
+        if len(string) <= 3:
+            lines.append(line)
+        else:
+            name, arg_s, *args = string
+            lines.extend([name + " " + arg_s + " " + arg for arg in args])
+            cur += len(args) - 1
+
+        cur += 1
+
+    return address_line(lines, labels, variable)
+
+
 def translate(code: str):
     text_index: int = code.find(SECTION_TEXT)
     data_index: int = code.find(SECTION_DATA)
 
-    variable, memory = parse_data_section(code[data_index + len(SECTION_DATA) + 1 : text_index])
+    variable, memory = parse_data_section(code[data_index + len(SECTION_DATA) + 1: text_index])
     memory[0] = len(memory)
-    text_code = parse_text_section(variable, code[text_index + len(SECTION_DATA) + 1 :], memory[0])
+    text_code = parse_text_section(variable, code[text_index + len(SECTION_DATA) + 1:], memory[0])
     return generate_binary(text_code, memory)
 
 
