@@ -15,7 +15,7 @@ def test_translator_and_machine(golden, caplog):
 
     with tempfile.TemporaryDirectory() as tmp_dir_name:
         source = os.path.join(tmp_dir_name, "source.myasm")
-        input_stream = os.path.join(tmp_dir_name, "input.txt")
+        input_stream = os.path.join(tmp_dir_name, "test.txt")
         target = os.path.join(tmp_dir_name, "target.0")
 
         with open(source, "w", encoding="utf-8") as file:

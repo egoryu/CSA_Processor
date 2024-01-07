@@ -39,10 +39,10 @@ class ALU:
     def __init__(self):
         self.N = 0
         self.Z = 1
-        self.C = 0
+        self.OF = 0
 
     def __str__(self):
-        return f"N: {self.N} Z: {self.Z} C: {self.C}"
+        return f"N: {self.N} Z: {self.Z} OF: {self.OF}"
 
     def perform(self, op: int, left: int, right: int) -> int:
         handler = ALU_OP_HANDLERS[op]
@@ -57,12 +57,12 @@ class ALU:
 
     def handle_overflow(self, value: int) -> int:
         if value >= MAX_NUM:
-            self.C = 1
+            self.OF = 1
             return value - MAX_NUM
         if value <= -MAX_NUM:
-            self.C = 1
+            self.OF = 1
             return value + MAX_NUM
-        self.C = 0
+        self.OF = 0
         return value
 
 

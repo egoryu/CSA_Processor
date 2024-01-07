@@ -167,240 +167,240 @@ out_stdout: |
 
   instr_counter:  201 ticks: 607
 out_log: |
-  INFO    machine:command_cycle Tick: 0 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 57, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 C: 0 | Instruction: nop
-  INFO    machine:command_cycle Tick: 3 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 58, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 C: 0 | Instruction: mov #1 73
-  INFO    machine:command_cycle Tick: 5 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 59, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 C: 0 | Instruction: jmp 59
-  INFO    machine:command_cycle Tick: 8 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 60, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 C: 0 | Instruction: mov #21 #2
-  INFO    machine:command_cycle Tick: 12 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #20 1
+  INFO    machine:command_cycle Tick: 0 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 57, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 OF: 0 | Instruction: nop
+  INFO    machine:command_cycle Tick: 3 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 58, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 OF: 0 | Instruction: mov #1 73
+  INFO    machine:command_cycle Tick: 5 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 59, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 OF: 0 | Instruction: jmp 59
+  INFO    machine:command_cycle Tick: 8 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 60, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 OF: 0 | Instruction: mov #21 #2
+  INFO    machine:command_cycle Tick: 12 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #20 1
   INFO    machine:wr_port       OUTPUT: [] <- W
-  INFO    machine:command_cycle Tick: 14 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !20
-  INFO    machine:command_cycle Tick: 18 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #20 1
-  INFO    machine:command_cycle Tick: 22 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #21 1
-  INFO    machine:command_cycle Tick: 25 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #21 0
-  INFO    machine:command_cycle Tick: 27 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 67
-  INFO    machine:command_cycle Tick: 29 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 61
+  INFO    machine:command_cycle Tick: 14 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *20
+  INFO    machine:command_cycle Tick: 18 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #20 1
+  INFO    machine:command_cycle Tick: 22 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #21 1
+  INFO    machine:command_cycle Tick: 25 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #21 0
+  INFO    machine:command_cycle Tick: 27 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 67
+  INFO    machine:command_cycle Tick: 29 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 61
   INFO    machine:wr_port       OUTPUT: ['W'] <- h
-  INFO    machine:command_cycle Tick: 31 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !20
-  INFO    machine:command_cycle Tick: 35 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #20 1
-  INFO    machine:command_cycle Tick: 39 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #21 1
-  INFO    machine:command_cycle Tick: 42 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #21 0
-  INFO    machine:command_cycle Tick: 44 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 67
-  INFO    machine:command_cycle Tick: 46 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 61
+  INFO    machine:command_cycle Tick: 31 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *20
+  INFO    machine:command_cycle Tick: 35 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #20 1
+  INFO    machine:command_cycle Tick: 39 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #21 1
+  INFO    machine:command_cycle Tick: 42 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #21 0
+  INFO    machine:command_cycle Tick: 44 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 67
+  INFO    machine:command_cycle Tick: 46 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 61
   INFO    machine:wr_port       OUTPUT: ['W', 'h'] <- a
-  INFO    machine:command_cycle Tick: 48 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !20
-  INFO    machine:command_cycle Tick: 52 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #20 1
-  INFO    machine:command_cycle Tick: 56 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #21 1
-  INFO    machine:command_cycle Tick: 59 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #21 0
-  INFO    machine:command_cycle Tick: 61 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 67
-  INFO    machine:command_cycle Tick: 63 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 61
+  INFO    machine:command_cycle Tick: 48 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *20
+  INFO    machine:command_cycle Tick: 52 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #20 1
+  INFO    machine:command_cycle Tick: 56 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #21 1
+  INFO    machine:command_cycle Tick: 59 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #21 0
+  INFO    machine:command_cycle Tick: 61 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 67
+  INFO    machine:command_cycle Tick: 63 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 61
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a'] <- t
-  INFO    machine:command_cycle Tick: 65 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !20
-  INFO    machine:command_cycle Tick: 69 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #20 1
-  INFO    machine:command_cycle Tick: 73 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #21 1
-  INFO    machine:command_cycle Tick: 76 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #21 0
-  INFO    machine:command_cycle Tick: 78 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 67
-  INFO    machine:command_cycle Tick: 80 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 61
+  INFO    machine:command_cycle Tick: 65 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *20
+  INFO    machine:command_cycle Tick: 69 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #20 1
+  INFO    machine:command_cycle Tick: 73 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #21 1
+  INFO    machine:command_cycle Tick: 76 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #21 0
+  INFO    machine:command_cycle Tick: 78 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 67
+  INFO    machine:command_cycle Tick: 80 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 61
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't'] <- `
-  INFO    machine:command_cycle Tick: 82 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !20
-  INFO    machine:command_cycle Tick: 86 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #20 1
-  INFO    machine:command_cycle Tick: 90 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #21 1
-  INFO    machine:command_cycle Tick: 93 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #21 0
-  INFO    machine:command_cycle Tick: 95 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 67
-  INFO    machine:command_cycle Tick: 97 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 61
+  INFO    machine:command_cycle Tick: 82 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *20
+  INFO    machine:command_cycle Tick: 86 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #20 1
+  INFO    machine:command_cycle Tick: 90 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #21 1
+  INFO    machine:command_cycle Tick: 93 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #21 0
+  INFO    machine:command_cycle Tick: 95 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 67
+  INFO    machine:command_cycle Tick: 97 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 61
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't', '`'] <- s
-  INFO    machine:command_cycle Tick: 99 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !20
-  INFO    machine:command_cycle Tick: 103 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #20 1
-  INFO    machine:command_cycle Tick: 107 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #21 1
-  INFO    machine:command_cycle Tick: 110 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #21 0
-  INFO    machine:command_cycle Tick: 112 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 67
-  INFO    machine:command_cycle Tick: 114 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 61
+  INFO    machine:command_cycle Tick: 99 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *20
+  INFO    machine:command_cycle Tick: 103 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #20 1
+  INFO    machine:command_cycle Tick: 107 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #21 1
+  INFO    machine:command_cycle Tick: 110 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #21 0
+  INFO    machine:command_cycle Tick: 112 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 67
+  INFO    machine:command_cycle Tick: 114 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 61
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't', '`', 's'] <-  
-  INFO    machine:command_cycle Tick: 116 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !20
-  INFO    machine:command_cycle Tick: 120 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #20 1
-  INFO    machine:command_cycle Tick: 124 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #21 1
-  INFO    machine:command_cycle Tick: 127 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #21 0
-  INFO    machine:command_cycle Tick: 129 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 67
-  INFO    machine:command_cycle Tick: 131 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 61
+  INFO    machine:command_cycle Tick: 116 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *20
+  INFO    machine:command_cycle Tick: 120 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #20 1
+  INFO    machine:command_cycle Tick: 124 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #21 1
+  INFO    machine:command_cycle Tick: 127 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #21 0
+  INFO    machine:command_cycle Tick: 129 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 67
+  INFO    machine:command_cycle Tick: 131 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 61
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't', '`', 's', ' '] <- y
-  INFO    machine:command_cycle Tick: 133 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !20
-  INFO    machine:command_cycle Tick: 137 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #20 1
-  INFO    machine:command_cycle Tick: 141 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #21 1
-  INFO    machine:command_cycle Tick: 144 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #21 0
-  INFO    machine:command_cycle Tick: 146 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 67
-  INFO    machine:command_cycle Tick: 148 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 61
+  INFO    machine:command_cycle Tick: 133 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *20
+  INFO    machine:command_cycle Tick: 137 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #20 1
+  INFO    machine:command_cycle Tick: 141 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #21 1
+  INFO    machine:command_cycle Tick: 144 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #21 0
+  INFO    machine:command_cycle Tick: 146 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 67
+  INFO    machine:command_cycle Tick: 148 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 61
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't', '`', 's', ' ', 'y'] <- o
-  INFO    machine:command_cycle Tick: 150 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !20
-  INFO    machine:command_cycle Tick: 154 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #20 1
-  INFO    machine:command_cycle Tick: 158 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #21 1
-  INFO    machine:command_cycle Tick: 161 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #21 0
-  INFO    machine:command_cycle Tick: 163 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 67
-  INFO    machine:command_cycle Tick: 165 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 61
+  INFO    machine:command_cycle Tick: 150 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *20
+  INFO    machine:command_cycle Tick: 154 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #20 1
+  INFO    machine:command_cycle Tick: 158 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #21 1
+  INFO    machine:command_cycle Tick: 161 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #21 0
+  INFO    machine:command_cycle Tick: 163 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 67
+  INFO    machine:command_cycle Tick: 165 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 61
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't', '`', 's', ' ', 'y', 'o'] <- u
-  INFO    machine:command_cycle Tick: 167 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !20
-  INFO    machine:command_cycle Tick: 171 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #20 1
-  INFO    machine:command_cycle Tick: 175 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #21 1
-  INFO    machine:command_cycle Tick: 178 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #21 0
-  INFO    machine:command_cycle Tick: 180 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 67
-  INFO    machine:command_cycle Tick: 182 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 61
+  INFO    machine:command_cycle Tick: 167 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *20
+  INFO    machine:command_cycle Tick: 171 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #20 1
+  INFO    machine:command_cycle Tick: 175 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #21 1
+  INFO    machine:command_cycle Tick: 178 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #21 0
+  INFO    machine:command_cycle Tick: 180 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 67
+  INFO    machine:command_cycle Tick: 182 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 61
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't', '`', 's', ' ', 'y', 'o', 'u'] <- r
-  INFO    machine:command_cycle Tick: 184 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !20
-  INFO    machine:command_cycle Tick: 188 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #20 1
-  INFO    machine:command_cycle Tick: 192 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #21 1
-  INFO    machine:command_cycle Tick: 195 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #21 0
-  INFO    machine:command_cycle Tick: 197 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 67
-  INFO    machine:command_cycle Tick: 199 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 61
+  INFO    machine:command_cycle Tick: 184 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *20
+  INFO    machine:command_cycle Tick: 188 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #20 1
+  INFO    machine:command_cycle Tick: 192 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #21 1
+  INFO    machine:command_cycle Tick: 195 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #21 0
+  INFO    machine:command_cycle Tick: 197 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 67
+  INFO    machine:command_cycle Tick: 199 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 61
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't', '`', 's', ' ', 'y', 'o', 'u', 'r'] <-  
-  INFO    machine:command_cycle Tick: 201 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !20
-  INFO    machine:command_cycle Tick: 205 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #20 1
-  INFO    machine:command_cycle Tick: 209 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #21 1
-  INFO    machine:command_cycle Tick: 212 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #21 0
-  INFO    machine:command_cycle Tick: 214 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 67
-  INFO    machine:command_cycle Tick: 216 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 61
+  INFO    machine:command_cycle Tick: 201 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *20
+  INFO    machine:command_cycle Tick: 205 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #20 1
+  INFO    machine:command_cycle Tick: 209 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #21 1
+  INFO    machine:command_cycle Tick: 212 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #21 0
+  INFO    machine:command_cycle Tick: 214 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 67
+  INFO    machine:command_cycle Tick: 216 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 61
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't', '`', 's', ' ', 'y', 'o', 'u', 'r', ' '] <- n
-  INFO    machine:command_cycle Tick: 218 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !20
-  INFO    machine:command_cycle Tick: 222 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #20 1
-  INFO    machine:command_cycle Tick: 226 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #21 1
-  INFO    machine:command_cycle Tick: 229 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #21 0
-  INFO    machine:command_cycle Tick: 231 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 67
-  INFO    machine:command_cycle Tick: 233 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 61
+  INFO    machine:command_cycle Tick: 218 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *20
+  INFO    machine:command_cycle Tick: 222 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #20 1
+  INFO    machine:command_cycle Tick: 226 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #21 1
+  INFO    machine:command_cycle Tick: 229 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #21 0
+  INFO    machine:command_cycle Tick: 231 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 67
+  INFO    machine:command_cycle Tick: 233 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 61
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't', '`', 's', ' ', 'y', 'o', 'u', 'r', ' ', 'n'] <- a
-  INFO    machine:command_cycle Tick: 235 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !20
-  INFO    machine:command_cycle Tick: 239 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #20 1
-  INFO    machine:command_cycle Tick: 243 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #21 1
-  INFO    machine:command_cycle Tick: 246 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #21 0
-  INFO    machine:command_cycle Tick: 248 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 67
-  INFO    machine:command_cycle Tick: 250 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 61
+  INFO    machine:command_cycle Tick: 235 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *20
+  INFO    machine:command_cycle Tick: 239 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #20 1
+  INFO    machine:command_cycle Tick: 243 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #21 1
+  INFO    machine:command_cycle Tick: 246 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #21 0
+  INFO    machine:command_cycle Tick: 248 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 67
+  INFO    machine:command_cycle Tick: 250 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 61
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't', '`', 's', ' ', 'y', 'o', 'u', 'r', ' ', 'n', 'a'] <- m
-  INFO    machine:command_cycle Tick: 252 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !20
-  INFO    machine:command_cycle Tick: 256 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #20 1
-  INFO    machine:command_cycle Tick: 260 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #21 1
-  INFO    machine:command_cycle Tick: 263 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #21 0
-  INFO    machine:command_cycle Tick: 265 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 67
-  INFO    machine:command_cycle Tick: 267 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 61
+  INFO    machine:command_cycle Tick: 252 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *20
+  INFO    machine:command_cycle Tick: 256 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #20 1
+  INFO    machine:command_cycle Tick: 260 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #21 1
+  INFO    machine:command_cycle Tick: 263 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #21 0
+  INFO    machine:command_cycle Tick: 265 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 67
+  INFO    machine:command_cycle Tick: 267 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 61
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't', '`', 's', ' ', 'y', 'o', 'u', 'r', ' ', 'n', 'a', 'm'] <- e
-  INFO    machine:command_cycle Tick: 269 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !20
-  INFO    machine:command_cycle Tick: 273 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #20 1
-  INFO    machine:command_cycle Tick: 277 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #21 1
-  INFO    machine:command_cycle Tick: 280 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #21 0
-  INFO    machine:command_cycle Tick: 282 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 67
-  INFO    machine:command_cycle Tick: 284 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 61
+  INFO    machine:command_cycle Tick: 269 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *20
+  INFO    machine:command_cycle Tick: 273 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #20 1
+  INFO    machine:command_cycle Tick: 277 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #21 1
+  INFO    machine:command_cycle Tick: 280 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #21 0
+  INFO    machine:command_cycle Tick: 282 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 66, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 67
+  INFO    machine:command_cycle Tick: 284 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 61, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 61
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't', '`', 's', ' ', 'y', 'o', 'u', 'r', ' ', 'n', 'a', 'm', 'e'] <- ?
-  INFO    machine:command_cycle Tick: 286 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !20
-  INFO    machine:command_cycle Tick: 290 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #20 1
-  INFO    machine:command_cycle Tick: 294 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 1 C: 0 | Instruction: sub #21 1
-  INFO    machine:command_cycle Tick: 297 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 1 C: 0 | Instruction: cmp #21 0
-  INFO    machine:command_cycle Tick: 299 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 67, rst: 2, rsp: 2047 Flags: N: 0 Z: 1 C: 0 | Instruction: jz 67
-  INFO    machine:command_cycle Tick: 301 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 68, rst: 3, rsp: 2047 Flags: N: 0 Z: 1 C: 0 | Instruction: ei
+  INFO    machine:command_cycle Tick: 286 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 62, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *20
+  INFO    machine:command_cycle Tick: 290 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 63, rst: 2, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #20 1
+  INFO    machine:command_cycle Tick: 294 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 64, rst: 2, rsp: 2047 Flags: N: 0 Z: 1 OF: 0 | Instruction: sub #21 1
+  INFO    machine:command_cycle Tick: 297 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 65, rst: 2, rsp: 2047 Flags: N: 0 Z: 1 OF: 0 | Instruction: cmp #21 0
+  INFO    machine:command_cycle Tick: 299 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 67, rst: 2, rsp: 2047 Flags: N: 0 Z: 1 OF: 0 | Instruction: jz 67
+  INFO    machine:command_cycle Tick: 301 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 68, rst: 3, rsp: 2047 Flags: N: 0 Z: 1 OF: 0 | Instruction: ei
   INFO    machine:rd_port       INPUT: E
-  INFO    machine:command_cycle TRAP:Tick: 307 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 74, rst: 0, rsp: 2045 Flags: N: 0 Z: 1 C: 0 | Instruction: movi #23 !0
-  INFO    machine:command_cycle TRAP:Tick: 310 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 75, rst: 2, rsp: 2045 Flags: N: 0 Z: 1 C: 0 | Instruction: mov !47 #23
-  INFO    machine:command_cycle TRAP:Tick: 314 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 76, rst: 2, rsp: 2045 Flags: N: 0 Z: 0 C: 0 | Instruction: add #47 1
-  INFO    machine:command_cycle TRAP:Tick: 318 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 77, rst: 2, rsp: 2045 Flags: N: 0 Z: 0 C: 0 | Instruction: add #25 1
-  INFO    machine:command_cycle Tick: 322 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 68, rst: 3, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: iret
+  INFO    machine:command_cycle TRAP:Tick: 307 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 74, rst: 0, rsp: 2045 Flags: N: 0 Z: 1 OF: 0 | Instruction: movi #23 !0
+  INFO    machine:command_cycle TRAP:Tick: 310 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 75, rst: 2, rsp: 2045 Flags: N: 0 Z: 1 OF: 0 | Instruction: mov *47 #23
+  INFO    machine:command_cycle TRAP:Tick: 314 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 76, rst: 2, rsp: 2045 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #47 1
+  INFO    machine:command_cycle TRAP:Tick: 318 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 77, rst: 2, rsp: 2045 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #25 1
+  INFO    machine:command_cycle Tick: 322 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 68, rst: 3, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: iret
   INFO    machine:rd_port       INPUT: g
-  INFO    machine:command_cycle TRAP:Tick: 328 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 74, rst: 0, rsp: 2045 Flags: N: 0 Z: 0 C: 0 | Instruction: movi #23 !0
-  INFO    machine:command_cycle TRAP:Tick: 331 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 75, rst: 2, rsp: 2045 Flags: N: 0 Z: 0 C: 0 | Instruction: mov !47 #23
-  INFO    machine:command_cycle TRAP:Tick: 335 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 76, rst: 2, rsp: 2045 Flags: N: 0 Z: 0 C: 0 | Instruction: add #47 1
-  INFO    machine:command_cycle TRAP:Tick: 339 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 77, rst: 2, rsp: 2045 Flags: N: 0 Z: 0 C: 0 | Instruction: add #25 1
-  INFO    machine:command_cycle Tick: 343 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 68, rst: 3, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: iret
+  INFO    machine:command_cycle TRAP:Tick: 328 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 74, rst: 0, rsp: 2045 Flags: N: 0 Z: 0 OF: 0 | Instruction: movi #23 !0
+  INFO    machine:command_cycle TRAP:Tick: 331 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 75, rst: 2, rsp: 2045 Flags: N: 0 Z: 0 OF: 0 | Instruction: mov *47 #23
+  INFO    machine:command_cycle TRAP:Tick: 335 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 76, rst: 2, rsp: 2045 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #47 1
+  INFO    machine:command_cycle TRAP:Tick: 339 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 77, rst: 2, rsp: 2045 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #25 1
+  INFO    machine:command_cycle Tick: 343 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 68, rst: 3, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: iret
   INFO    machine:rd_port       INPUT: o
-  INFO    machine:command_cycle TRAP:Tick: 349 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 74, rst: 0, rsp: 2045 Flags: N: 0 Z: 0 C: 0 | Instruction: movi #23 !0
-  INFO    machine:command_cycle TRAP:Tick: 352 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 75, rst: 2, rsp: 2045 Flags: N: 0 Z: 0 C: 0 | Instruction: mov !47 #23
-  INFO    machine:command_cycle TRAP:Tick: 356 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 76, rst: 2, rsp: 2045 Flags: N: 0 Z: 0 C: 0 | Instruction: add #47 1
-  INFO    machine:command_cycle TRAP:Tick: 360 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 77, rst: 2, rsp: 2045 Flags: N: 0 Z: 0 C: 0 | Instruction: add #25 1
-  INFO    machine:command_cycle Tick: 364 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 68, rst: 3, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: iret
+  INFO    machine:command_cycle TRAP:Tick: 349 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 74, rst: 0, rsp: 2045 Flags: N: 0 Z: 0 OF: 0 | Instruction: movi #23 !0
+  INFO    machine:command_cycle TRAP:Tick: 352 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 75, rst: 2, rsp: 2045 Flags: N: 0 Z: 0 OF: 0 | Instruction: mov *47 #23
+  INFO    machine:command_cycle TRAP:Tick: 356 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 76, rst: 2, rsp: 2045 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #47 1
+  INFO    machine:command_cycle TRAP:Tick: 360 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 77, rst: 2, rsp: 2045 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #25 1
+  INFO    machine:command_cycle Tick: 364 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 68, rst: 3, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: iret
   INFO    machine:rd_port       INPUT: r
-  INFO    machine:command_cycle TRAP:Tick: 370 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 74, rst: 0, rsp: 2045 Flags: N: 0 Z: 0 C: 0 | Instruction: movi #23 !0
-  INFO    machine:command_cycle TRAP:Tick: 373 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 75, rst: 2, rsp: 2045 Flags: N: 0 Z: 0 C: 0 | Instruction: mov !47 #23
-  INFO    machine:command_cycle TRAP:Tick: 377 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 76, rst: 2, rsp: 2045 Flags: N: 0 Z: 0 C: 0 | Instruction: add #47 1
-  INFO    machine:command_cycle TRAP:Tick: 381 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 77, rst: 2, rsp: 2045 Flags: N: 0 Z: 0 C: 0 | Instruction: add #25 1
-  INFO    machine:command_cycle Tick: 385 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 68, rst: 3, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: iret
+  INFO    machine:command_cycle TRAP:Tick: 370 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 74, rst: 0, rsp: 2045 Flags: N: 0 Z: 0 OF: 0 | Instruction: movi #23 !0
+  INFO    machine:command_cycle TRAP:Tick: 373 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 75, rst: 2, rsp: 2045 Flags: N: 0 Z: 0 OF: 0 | Instruction: mov *47 #23
+  INFO    machine:command_cycle TRAP:Tick: 377 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 76, rst: 2, rsp: 2045 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #47 1
+  INFO    machine:command_cycle TRAP:Tick: 381 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 77, rst: 2, rsp: 2045 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #25 1
+  INFO    machine:command_cycle Tick: 385 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 68, rst: 3, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: iret
   INFO    machine:rd_port       INPUT: \n
-  INFO    machine:command_cycle TRAP:Tick: 391 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 74, rst: 0, rsp: 2045 Flags: N: 0 Z: 0 C: 0 | Instruction: movi #23 !0
-  INFO    machine:command_cycle TRAP:Tick: 394 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 75, rst: 0, rsp: 2045 Flags: N: 0 Z: 0 C: 0 | Instruction: mov !47 #23
-  INFO    machine:command_cycle TRAP:Tick: 398 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 76, rst: 0, rsp: 2045 Flags: N: 0 Z: 0 C: 0 | Instruction: add #47 1
-  INFO    machine:command_cycle TRAP:Tick: 402 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 77, rst: 0, rsp: 2045 Flags: N: 0 Z: 0 C: 0 | Instruction: add #25 1
-  INFO    machine:command_cycle Tick: 406 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 68, rst: 1, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: iret
-  INFO    machine:command_cycle Tick: 409 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 69, rst: 1, rsp: 2047 Flags: N: 0 Z: 1 C: 0 | Instruction: cmp #23 #22
-  INFO    machine:command_cycle Tick: 411 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 78, rst: 1, rsp: 2047 Flags: N: 0 Z: 1 C: 0 | Instruction: jz 78
-  INFO    machine:command_cycle Tick: 413 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 79, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 C: 0 | Instruction: di
-  INFO    machine:command_cycle Tick: 416 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 80, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 C: 0 | Instruction: mov #56 #48
-  INFO    machine:command_cycle Tick: 420 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 81, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #55 1
+  INFO    machine:command_cycle TRAP:Tick: 391 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 74, rst: 0, rsp: 2045 Flags: N: 0 Z: 0 OF: 0 | Instruction: movi #23 !0
+  INFO    machine:command_cycle TRAP:Tick: 394 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 75, rst: 0, rsp: 2045 Flags: N: 0 Z: 0 OF: 0 | Instruction: mov *47 #23
+  INFO    machine:command_cycle TRAP:Tick: 398 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 76, rst: 0, rsp: 2045 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #47 1
+  INFO    machine:command_cycle TRAP:Tick: 402 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 77, rst: 0, rsp: 2045 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #25 1
+  INFO    machine:command_cycle Tick: 406 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 68, rst: 1, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: iret
+  INFO    machine:command_cycle Tick: 409 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 69, rst: 1, rsp: 2047 Flags: N: 0 Z: 1 OF: 0 | Instruction: cmp #23 #22
+  INFO    machine:command_cycle Tick: 411 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 78, rst: 1, rsp: 2047 Flags: N: 0 Z: 1 OF: 0 | Instruction: jz 78
+  INFO    machine:command_cycle Tick: 413 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 79, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 OF: 0 | Instruction: di
+  INFO    machine:command_cycle Tick: 416 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 80, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 OF: 0 | Instruction: mov #56 #48
+  INFO    machine:command_cycle Tick: 420 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 81, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #55 1
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't', '`', 's', ' ', 'y', 'o', 'u', 'r', ' ', 'n', 'a', 'm', 'e', '?'] <- H
-  INFO    machine:command_cycle Tick: 422 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 82, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !55
-  INFO    machine:command_cycle Tick: 426 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 83, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #55 1
-  INFO    machine:command_cycle Tick: 430 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 84, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #56 1
-  INFO    machine:command_cycle Tick: 433 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 85, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #56 0
-  INFO    machine:command_cycle Tick: 435 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 86, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 87
-  INFO    machine:command_cycle Tick: 437 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 81, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 81
+  INFO    machine:command_cycle Tick: 422 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 82, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *55
+  INFO    machine:command_cycle Tick: 426 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 83, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #55 1
+  INFO    machine:command_cycle Tick: 430 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 84, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #56 1
+  INFO    machine:command_cycle Tick: 433 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 85, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #56 0
+  INFO    machine:command_cycle Tick: 435 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 86, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 87
+  INFO    machine:command_cycle Tick: 437 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 81, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 81
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't', '`', 's', ' ', 'y', 'o', 'u', 'r', ' ', 'n', 'a', 'm', 'e', '?', 'H'] <- e
-  INFO    machine:command_cycle Tick: 439 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 82, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !55
-  INFO    machine:command_cycle Tick: 443 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 83, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #55 1
-  INFO    machine:command_cycle Tick: 447 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 84, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #56 1
-  INFO    machine:command_cycle Tick: 450 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 85, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #56 0
-  INFO    machine:command_cycle Tick: 452 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 86, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 87
-  INFO    machine:command_cycle Tick: 454 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 81, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 81
+  INFO    machine:command_cycle Tick: 439 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 82, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *55
+  INFO    machine:command_cycle Tick: 443 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 83, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #55 1
+  INFO    machine:command_cycle Tick: 447 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 84, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #56 1
+  INFO    machine:command_cycle Tick: 450 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 85, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #56 0
+  INFO    machine:command_cycle Tick: 452 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 86, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 87
+  INFO    machine:command_cycle Tick: 454 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 81, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 81
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't', '`', 's', ' ', 'y', 'o', 'u', 'r', ' ', 'n', 'a', 'm', 'e', '?', 'H', 'e'] <- l
-  INFO    machine:command_cycle Tick: 456 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 82, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !55
-  INFO    machine:command_cycle Tick: 460 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 83, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #55 1
-  INFO    machine:command_cycle Tick: 464 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 84, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #56 1
-  INFO    machine:command_cycle Tick: 467 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 85, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #56 0
-  INFO    machine:command_cycle Tick: 469 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 86, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 87
-  INFO    machine:command_cycle Tick: 471 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 81, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 81
+  INFO    machine:command_cycle Tick: 456 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 82, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *55
+  INFO    machine:command_cycle Tick: 460 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 83, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #55 1
+  INFO    machine:command_cycle Tick: 464 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 84, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #56 1
+  INFO    machine:command_cycle Tick: 467 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 85, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #56 0
+  INFO    machine:command_cycle Tick: 469 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 86, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 87
+  INFO    machine:command_cycle Tick: 471 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 81, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 81
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't', '`', 's', ' ', 'y', 'o', 'u', 'r', ' ', 'n', 'a', 'm', 'e', '?', 'H', 'e', 'l'] <- l
-  INFO    machine:command_cycle Tick: 473 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 82, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !55
-  INFO    machine:command_cycle Tick: 477 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 83, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #55 1
-  INFO    machine:command_cycle Tick: 481 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 84, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #56 1
-  INFO    machine:command_cycle Tick: 484 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 85, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #56 0
-  INFO    machine:command_cycle Tick: 486 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 86, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 87
-  INFO    machine:command_cycle Tick: 488 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 81, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 81
+  INFO    machine:command_cycle Tick: 473 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 82, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *55
+  INFO    machine:command_cycle Tick: 477 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 83, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #55 1
+  INFO    machine:command_cycle Tick: 481 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 84, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #56 1
+  INFO    machine:command_cycle Tick: 484 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 85, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #56 0
+  INFO    machine:command_cycle Tick: 486 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 86, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 87
+  INFO    machine:command_cycle Tick: 488 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 81, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 81
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't', '`', 's', ' ', 'y', 'o', 'u', 'r', ' ', 'n', 'a', 'm', 'e', '?', 'H', 'e', 'l', 'l'] <- o
-  INFO    machine:command_cycle Tick: 490 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 82, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !55
-  INFO    machine:command_cycle Tick: 494 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 83, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #55 1
-  INFO    machine:command_cycle Tick: 498 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 84, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #56 1
-  INFO    machine:command_cycle Tick: 501 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 85, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #56 0
-  INFO    machine:command_cycle Tick: 503 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 86, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 87
-  INFO    machine:command_cycle Tick: 505 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 81, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 81
+  INFO    machine:command_cycle Tick: 490 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 82, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *55
+  INFO    machine:command_cycle Tick: 494 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 83, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #55 1
+  INFO    machine:command_cycle Tick: 498 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 84, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #56 1
+  INFO    machine:command_cycle Tick: 501 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 85, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #56 0
+  INFO    machine:command_cycle Tick: 503 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 86, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 87
+  INFO    machine:command_cycle Tick: 505 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 81, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 81
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't', '`', 's', ' ', 'y', 'o', 'u', 'r', ' ', 'n', 'a', 'm', 'e', '?', 'H', 'e', 'l', 'l', 'o'] <-  
-  INFO    machine:command_cycle Tick: 507 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 82, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !55
-  INFO    machine:command_cycle Tick: 511 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 83, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #55 1
-  INFO    machine:command_cycle Tick: 515 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 84, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 C: 0 | Instruction: sub #56 1
-  INFO    machine:command_cycle Tick: 518 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 85, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 C: 0 | Instruction: cmp #56 0
-  INFO    machine:command_cycle Tick: 520 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 87, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 C: 0 | Instruction: jz 87
-  INFO    machine:command_cycle Tick: 523 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 88, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 C: 0 | Instruction: mov #47 #46
+  INFO    machine:command_cycle Tick: 507 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 82, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *55
+  INFO    machine:command_cycle Tick: 511 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 83, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #55 1
+  INFO    machine:command_cycle Tick: 515 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 84, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 OF: 0 | Instruction: sub #56 1
+  INFO    machine:command_cycle Tick: 518 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 85, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 OF: 0 | Instruction: cmp #56 0
+  INFO    machine:command_cycle Tick: 520 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 87, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 OF: 0 | Instruction: jz 87
+  INFO    machine:command_cycle Tick: 523 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 88, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 OF: 0 | Instruction: mov #47 #46
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't', '`', 's', ' ', 'y', 'o', 'u', 'r', ' ', 'n', 'a', 'm', 'e', '?', 'H', 'e', 'l', 'l', 'o', ' '] <- E
-  INFO    machine:command_cycle Tick: 525 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 89, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 C: 0 | Instruction: movo !1 !47
-  INFO    machine:command_cycle Tick: 529 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 90, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #47 1
-  INFO    machine:command_cycle Tick: 533 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 91, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #25 1
-  INFO    machine:command_cycle Tick: 536 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 92, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #25 0
-  INFO    machine:command_cycle Tick: 538 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 93, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 94
-  INFO    machine:command_cycle Tick: 540 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 88, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 88
+  INFO    machine:command_cycle Tick: 525 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 89, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 OF: 0 | Instruction: movo !1 *47
+  INFO    machine:command_cycle Tick: 529 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 90, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #47 1
+  INFO    machine:command_cycle Tick: 533 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 91, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #25 1
+  INFO    machine:command_cycle Tick: 536 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 92, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #25 0
+  INFO    machine:command_cycle Tick: 538 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 93, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 94
+  INFO    machine:command_cycle Tick: 540 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 88, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 88
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't', '`', 's', ' ', 'y', 'o', 'u', 'r', ' ', 'n', 'a', 'm', 'e', '?', 'H', 'e', 'l', 'l', 'o', ' ', 'E'] <- g
-  INFO    machine:command_cycle Tick: 542 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 89, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !47
-  INFO    machine:command_cycle Tick: 546 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 90, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #47 1
-  INFO    machine:command_cycle Tick: 550 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 91, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #25 1
-  INFO    machine:command_cycle Tick: 553 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 92, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #25 0
-  INFO    machine:command_cycle Tick: 555 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 93, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 94
-  INFO    machine:command_cycle Tick: 557 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 88, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 88
+  INFO    machine:command_cycle Tick: 542 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 89, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *47
+  INFO    machine:command_cycle Tick: 546 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 90, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #47 1
+  INFO    machine:command_cycle Tick: 550 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 91, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #25 1
+  INFO    machine:command_cycle Tick: 553 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 92, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #25 0
+  INFO    machine:command_cycle Tick: 555 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 93, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 94
+  INFO    machine:command_cycle Tick: 557 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 88, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 88
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't', '`', 's', ' ', 'y', 'o', 'u', 'r', ' ', 'n', 'a', 'm', 'e', '?', 'H', 'e', 'l', 'l', 'o', ' ', 'E', 'g'] <- o
-  INFO    machine:command_cycle Tick: 559 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 89, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !47
-  INFO    machine:command_cycle Tick: 563 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 90, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #47 1
-  INFO    machine:command_cycle Tick: 567 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 91, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #25 1
-  INFO    machine:command_cycle Tick: 570 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 92, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #25 0
-  INFO    machine:command_cycle Tick: 572 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 93, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 94
-  INFO    machine:command_cycle Tick: 574 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 88, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 88
+  INFO    machine:command_cycle Tick: 559 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 89, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *47
+  INFO    machine:command_cycle Tick: 563 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 90, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #47 1
+  INFO    machine:command_cycle Tick: 567 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 91, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #25 1
+  INFO    machine:command_cycle Tick: 570 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 92, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #25 0
+  INFO    machine:command_cycle Tick: 572 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 93, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 94
+  INFO    machine:command_cycle Tick: 574 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 88, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 88
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't', '`', 's', ' ', 'y', 'o', 'u', 'r', ' ', 'n', 'a', 'm', 'e', '?', 'H', 'e', 'l', 'l', 'o', ' ', 'E', 'g', 'o'] <- r
-  INFO    machine:command_cycle Tick: 576 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 89, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !47
-  INFO    machine:command_cycle Tick: 580 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 90, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #47 1
-  INFO    machine:command_cycle Tick: 584 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 91, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: sub #25 1
-  INFO    machine:command_cycle Tick: 587 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 92, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: cmp #25 0
-  INFO    machine:command_cycle Tick: 589 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 93, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jz 94
-  INFO    machine:command_cycle Tick: 591 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 88, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: jmp 88
+  INFO    machine:command_cycle Tick: 576 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 89, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *47
+  INFO    machine:command_cycle Tick: 580 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 90, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #47 1
+  INFO    machine:command_cycle Tick: 584 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 91, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: sub #25 1
+  INFO    machine:command_cycle Tick: 587 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 92, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: cmp #25 0
+  INFO    machine:command_cycle Tick: 589 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 93, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jz 94
+  INFO    machine:command_cycle Tick: 591 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 88, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: jmp 88
   INFO    machine:wr_port       OUTPUT: ['W', 'h', 'a', 't', '`', 's', ' ', 'y', 'o', 'u', 'r', ' ', 'n', 'a', 'm', 'e', '?', 'H', 'e', 'l', 'l', 'o', ' ', 'E', 'g', 'o', 'r'] <- \n
-  INFO    machine:command_cycle Tick: 593 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 89, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: movo !1 !47
-  INFO    machine:command_cycle Tick: 597 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 90, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 C: 0 | Instruction: add #47 1
-  INFO    machine:command_cycle Tick: 601 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 91, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 C: 0 | Instruction: sub #25 1
-  INFO    machine:command_cycle Tick: 604 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 92, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 C: 0 | Instruction: cmp #25 0
-  INFO    machine:command_cycle Tick: 606 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 94, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 C: 0 | Instruction: jz 94
-  INFO    machine:command_cycle Tick: 607 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 94, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 C: 0 | Instruction: hlt
+  INFO    machine:command_cycle Tick: 593 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 89, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: movo !1 *47
+  INFO    machine:command_cycle Tick: 597 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 90, rst: 0, rsp: 2047 Flags: N: 0 Z: 0 OF: 0 | Instruction: add #47 1
+  INFO    machine:command_cycle Tick: 601 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 91, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 OF: 0 | Instruction: sub #25 1
+  INFO    machine:command_cycle Tick: 604 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 92, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 OF: 0 | Instruction: cmp #25 0
+  INFO    machine:command_cycle Tick: 606 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 94, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 OF: 0 | Instruction: jz 94
+  INFO    machine:command_cycle Tick: 607 | Registers: rax: 0, rbx: 0, rdx: 0, rip: 94, rst: 0, rsp: 2047 Flags: N: 0 Z: 1 OF: 0 | Instruction: hlt
   INFO    machine:simulation    output_buffer: 'What`s your name?Hello Egor\n'

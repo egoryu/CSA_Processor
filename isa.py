@@ -87,8 +87,9 @@ def get_type_address(addr_type: int, arg: int) -> str:
         return "%" + registers[arg]
     if addr_type == 2:
         return "#" + str(arg)
-
-    return "!" + str(arg)
+    if addr_type == 3:
+        return "!" + str(arg)
+    return "*" + str(arg)
 
 
 class Command:
