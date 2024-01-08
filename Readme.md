@@ -321,10 +321,12 @@ section .data
 ### DataPath
 
 Реализован в классе `DataPath`.
+![Data Path](resurce/Data_Path.png)
 
 ### ControlUnit
 
 Реализован в классе `ControlUnit`.
+![Control Unit](./resurce/Control_Unit.png)
 
 ## Тестирование
 

@@ -74,12 +74,12 @@ class DataPath:
     def __init__(self, data_memory, data_memory_size, ports, start_addr):
         assert data_memory_size > len(data_memory), "Data_memory size should be more"
         self.data_memory_size = data_memory_size
-        self.memory = data_memory + [format(0, "012x")] * (data_memory_size - len(data_memory))
+        self.memory = data_memory + [format(0, "020x")] * (data_memory_size - len(data_memory))
         self.ports = ports
         self.reg = {name: 0 for name in registers}
         self.set_reg(Registers.rip, start_addr)
         self.set_reg(Registers.rsp, data_memory_size - 1)
-        self.prev = format(0, "012x")
+        self.prev = format(0, "020x")
 
     def __str__(self):
         return self.prev
